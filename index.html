@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Casa De Todos — Restaurante & Experiencias en Costa Adeje, Tenerife Sur</title>
+    <title>La Casa De Todos — Restaurante & Recuerdos de los Años 60 en Las Américas</title>
+    <!-- Favicon -->
+    <link rel="icon" href="logo.ico" type="image/x-icon">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -19,13 +21,14 @@
                 extend: {
                     colors: {
                         brand: {
-                            terracotta: '#C85A32',
-                            terracottaDark: '#A8431E',
-                            beige: '#FDFBF7',
-                            sand: '#F3ECE0',
-                            dark: '#1C1917',
+                            // Vintage 60s color palette
+                            terracotta: '#D2691E', // Retro Orange/Brown
+                            terracottaDark: '#A0522D',
+                            beige: '#F4EFE6', // Warm vintage paper
+                            sand: '#E8DFD1',
+                            dark: '#2F2E2C', // Softened black
                             gold: '#D4AF37',
-                            sage: '#4A6B5D'
+                            sage: '#556B2F' // Vintage Olive Green
                         }
                     },
                     fontFamily: {
@@ -47,103 +50,108 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .sepia-filter {
+            filter: sepia(0.4) contrast(1.1) brightness(0.9);
+        }
     </style>
 </head>
 <body class="bg-brand-beige text-brand-dark font-sans antialiased flex flex-col min-h-screen selection:bg-brand-terracotta selection:text-white">
 
     <!-- Header Navigation -->
-    <header class="fixed top-0 left-0 w-full z-40 transition-all duration-300 bg-brand-beige/90 backdrop-blur-md border-b border-brand-sand/60 shadow-sm" id="mainHeader">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full bg-brand-terracotta text-white flex items-center justify-center text-xl shadow-md group-hover:bg-brand-terracottaDark transition-colors">
-                    <i class="fa-solid font-serif italic text-2xl">L</i>
-                </div>
-                <div class="flex flex-col">
-                    <span class="font-serif text-2xl font-bold tracking-wide text-brand-dark group-hover:text-brand-terracotta transition-colors leading-none">La Casa De Todos</span>
-                    <span class="text-[10px] uppercase tracking-widest text-stone-500 font-semibold mt-1">Restaurante & Experiencias · Costa Adeje</span>
-                </div>
+    <header class="fixed top-0 left-0 w-full z-40 transition-all duration-300 flex flex-col shadow-sm" id="mainHeader">
+        <!-- Instagram Reminder Top Bar -->
+        <div class="bg-stone-900 text-white text-xs py-2 text-center flex justify-center items-center gap-3 px-4">
+            <span class="font-medium tracking-wide">Revive la magia de los años 60 con nosotros. Síguenos en Instagram:</span>
+            <a href="https://instagram.com/lacasadetodossl" target="_blank" class="text-brand-gold hover:text-white font-bold transition-colors flex items-center gap-1.5">
+                <i class="fa-brands fa-instagram text-sm"></i> @lacasadetodossl
             </a>
+        </div>
 
-            <!-- Desktop Menu -->
-            <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
-                <a href="#about" class="text-stone-700 hover:text-brand-terracotta transition-colors">Nosotros</a>
-                <a href="#services" class="text-stone-700 hover:text-brand-terracotta transition-colors">Servicios</a>
-                <a href="#menu" class="text-stone-700 hover:text-brand-terracotta transition-colors">Menú</a>
-                <a href="#gallery" class="text-stone-700 hover:text-brand-terracotta transition-colors">Galería</a>
-                <a href="#contacts" class="text-stone-700 hover:text-brand-terracotta transition-colors">Ubicación</a>
-            </nav>
-
-            <!-- Actions & GitHub Guide Button -->
-            <div class="hidden md:flex items-center gap-3">
-                <button onclick="openModal('githubModal')" class="px-3 py-2 text-xs font-semibold rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-800 flex items-center gap-2 border border-stone-300 transition-colors">
-                    <i class="fa-brands fa-github text-sm"></i> Guía GitHub Pages
-                </button>
-                <a href="#contacts" class="px-5 py-2.5 bg-brand-terracotta hover:bg-brand-terracottaDark text-white text-sm font-semibold rounded-lg shadow-sm hover:shadow transition-all duration-200">
-                    Reservar Mesa
+        <div class="bg-brand-beige/95 backdrop-blur-md border-b border-brand-sand/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <img src="logo.png" alt="La Casa De Todos Logo" class="w-12 h-12 object-contain rounded-full shadow-md group-hover:scale-105 transition-transform bg-white">
+                    <div class="flex flex-col">
+                        <span class="font-serif text-2xl font-bold tracking-wide text-brand-dark group-hover:text-brand-terracotta transition-colors leading-none">La Casa De Todos</span>
+                        <span class="text-[10px] uppercase tracking-widest text-stone-500 font-semibold mt-1">El Refugio de los Años 60 · Las Américas</span>
+                    </div>
                 </a>
-            </div>
 
-            <!-- Mobile Hamburger Toggle -->
-            <div class="md:hidden flex items-center gap-2">
-                <button onclick="openModal('githubModal')" class="p-2 text-stone-700 hover:text-brand-terracotta" title="Guía GitHub Pages">
-                    <i class="fa-brands fa-github text-xl"></i>
-                </button>
-                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="p-2 rounded-md text-stone-700 hover:text-brand-terracotta focus:outline-none">
-                    <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
-                </button>
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
+                    <a href="#about" class="text-stone-700 hover:text-brand-terracotta transition-colors">Nuestra Época</a>
+                    <a href="#services" class="text-stone-700 hover:text-brand-terracotta transition-colors">Experiencias</a>
+                    <a href="#menu" class="text-stone-700 hover:text-brand-terracotta transition-colors">Menú Clásico</a>
+                    <a href="#gallery" class="text-stone-700 hover:text-brand-terracotta transition-colors">Recuerdos</a>
+                    <a href="#contacts" class="text-stone-700 hover:text-brand-terracotta transition-colors">Visítanos</a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="hidden md:flex items-center gap-3">
+                    <a href="#contacts" class="px-5 py-2.5 bg-brand-sage hover:bg-brand-terracotta text-white text-sm font-semibold rounded-lg shadow-sm hover:shadow transition-all duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check"></i> Reservar Mesa
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger Toggle -->
+                <div class="md:hidden flex items-center gap-2">
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="p-2 rounded-md text-stone-700 hover:text-brand-terracotta focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
         <!-- Mobile Menu Dropdown -->
         <div id="mobileMenu" class="hidden md:hidden bg-brand-beige border-b border-brand-sand px-4 pt-2 pb-6 space-y-3 font-medium text-base shadow-lg">
-            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-100">Nosotros</a>
-            <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-100">Servicios</a>
-            <a href="#menu" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-100">Menú</a>
-            <a href="#gallery" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-100">Galería</a>
-            <a href="#contacts" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-100">Ubicación & Contacto</a>
-            <a href="#contacts" onclick="toggleMobileMenu()" class="block text-center w-full py-3 bg-brand-terracotta text-white font-semibold rounded-lg shadow mt-4">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-200">Nuestra Época</a>
+            <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-200">Experiencias</a>
+            <a href="#menu" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-200">Menú Clásico</a>
+            <a href="#gallery" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-200">Recuerdos</a>
+            <a href="#contacts" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-200">Visítanos</a>
+            <a href="#contacts" onclick="toggleMobileMenu()" class="block text-center w-full py-3 bg-brand-sage text-white font-semibold rounded-lg shadow mt-4">
                 Reservar Mesa
             </a>
         </div>
     </header>
 
-    <main class="flex-grow pt-20">
+    <main class="flex-grow pt-[116px]">
 
         <!-- Hero Section -->
         <section class="relative min-h-[85vh] flex items-center justify-center bg-stone-900 overflow-hidden">
-            <!-- Background Image -->
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80" 
-                 alt="La Casa De Todos Costa Adeje" 
-                 class="absolute inset-0 w-full h-full object-cover opacity-40">
-            <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/40 to-stone-950/60"></div>
+            <!-- Background Image - Vintage Car / 60s Vibe -->
+            <img src="https://images.unsplash.com/photo-1493225457124-a31d618fe477?auto=format&fit=crop&w=1920&q=80" 
+                 alt="Coche clásico años 60 La Casa De Todos" 
+                 class="absolute inset-0 w-full h-full object-cover opacity-40 sepia-filter">
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/50 to-stone-950/70"></div>
 
             <div class="relative max-w-5xl mx-auto px-4 text-center text-white py-20 z-10">
-                <span class="text-brand-gold uppercase tracking-[0.3em] text-xs sm:text-sm font-semibold mb-4 block">Bienvenidos a Tenerife Sur</span>
-                <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight">La Casa De Todos</h1>
-                <p class="text-lg sm:text-2xl text-stone-200 font-light max-w-2xl mx-auto mb-8 leading-relaxed">
-                    Gastronomía mediterránea y canaria, cócteles de autor y momentos inolvidables en Costa Adeje.
+                <span class="text-brand-gold uppercase tracking-[0.3em] text-xs sm:text-sm font-bold mb-4 block">Un Viaje a la Época Dorada</span>
+                <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight">Revive los Mejores Años</h1>
+                <p class="text-lg sm:text-2xl text-stone-200 font-light max-w-3xl mx-auto mb-8 leading-relaxed">
+                    Donde suena The Beatles, brillan los clásicos del motor y la gastronomía te transporta a los recuerdos más felices. Un espacio diseñado para disfrutar sin prisas en Las Américas.
                 </p>
 
                 <!-- Quick Info Badges -->
                 <div class="flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto mb-10 text-xs sm:text-sm text-stone-200">
-                    <span class="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-                        <i class="fa-solid fa-location-dot text-brand-terracotta mr-1.5"></i> Av. Moscú 1, Costa Adeje
+                    <span class="bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                        <i class="fa-solid fa-location-dot text-brand-terracotta mr-1.5"></i> Calle La Habana 1, Las Américas
                     </span>
-                    <span class="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-                        <i class="fa-solid fa-phone text-brand-gold mr-1.5"></i> +34 922 00 00 00
+                    <span class="bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                        <i class="fa-solid fa-music text-brand-gold mr-1.5"></i> Ambiente y Música Años 60
                     </span>
-                    <span class="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-                        <i class="fa-solid fa-clock text-brand-sage mr-1.5"></i> Lunes a Domingo: 12:00 - 23:00
+                    <span class="bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                        <i class="fa-solid fa-couch text-brand-sage mr-1.5"></i> Confort y Accesibilidad
                     </span>
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#menu" class="w-full sm:w-auto px-8 py-4 bg-brand-terracotta hover:bg-brand-terracottaDark text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
-                        Ver Menú Completo
+                    <a href="#menu" class="w-full sm:w-auto px-8 py-4 bg-brand-terracotta hover:bg-brand-terracottaDark text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+                        Ver Menú Clásico
                     </a>
-                    <a href="#contacts" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-semibold rounded-lg border border-white/30 transition-all duration-300">
-                        Reservar Mesa
+                    <a href="#contacts" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold rounded-lg border border-white/30 transition-all duration-300">
+                        Reservar mi Mesa
                     </a>
                 </div>
             </div>
@@ -154,38 +162,38 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
                     <div>
-                        <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Nuestra Historia</span>
-                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-900 mt-2 mb-6">El rincón perfecto para compartir en Costa Adeje</h2>
-                        <p class="text-stone-600 leading-relaxed mb-6">
-                            Ubicados en la privilegiada <strong>Avenida Moscú 1</strong>, en el corazón de Costa Adeje (Tenerife Sur), <strong>La Casa De Todos</strong> nace como un espacio abierto para disfrutar de la buena mesa, la calidez del clima canario y una atención cuidada al detalle.
+                        <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Nuestra Filosofía</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-900 mt-2 mb-6">Un Homenaje a Nuestra Generación</h2>
+                        <p class="text-stone-700 leading-relaxed mb-6 text-lg">
+                            Ubicados en <strong>Calle La Habana 1</strong>, en Las Américas (Tenerife), <strong>La Casa De Todos</strong> nace como un abrazo a la nostalgia. Hemos creado un restaurante pensado especialmente para la "generación de oro", donde el confort, los buenos recuerdos y la época de los años 60 son los protagonistas.
                         </p>
                         <p class="text-stone-600 leading-relaxed mb-8">
-                            Fusionamos productos locales de Tenerife con recetas internacionales, ofreciendo desde auténticas tapas y pescados frescos del Atlántico hasta selecciones de carnes y repostería artesanal.
+                            Cada detalle está diseñado para su bienestar: sillones amplios y cómodos, espacios sin barreras, acústica cuidada para poder conversar sin alzar la voz, y una banda sonora inigualable con los grandes éxitos de The Beatles, Elvis y los clásicos de siempre. Aquí, el tiempo se detiene.
                         </p>
                         <div class="grid grid-cols-3 gap-4 border-t border-brand-sand pt-6 text-center">
                             <div>
-                                <span class="font-serif text-3xl font-bold text-brand-terracotta block">Costa Adeje</span>
-                                <span class="text-xs text-stone-500 font-medium">Tenerife Sur</span>
+                                <span class="font-serif text-3xl font-bold text-brand-sage block"><i class="fa-solid fa-record-vinyl"></i></span>
+                                <span class="text-xs text-stone-500 font-bold uppercase mt-2 block">Música 60s</span>
                             </div>
                             <div>
-                                <span class="font-serif text-3xl font-bold text-brand-terracotta block">Fresh</span>
-                                <span class="text-xs text-stone-500 font-medium">Producto Local</span>
+                                <span class="font-serif text-3xl font-bold text-brand-sage block"><i class="fa-solid fa-car-side"></i></span>
+                                <span class="text-xs text-stone-500 font-bold uppercase mt-2 block">Coches Clásicos</span>
                             </div>
                             <div>
-                                <span class="font-serif text-3xl font-bold text-brand-terracotta block">100%</span>
-                                <span class="text-xs text-stone-500 font-medium">Hospitalidad</span>
+                                <span class="font-serif text-3xl font-bold text-brand-sage block"><i class="fa-solid fa-wheelchair"></i></span>
+                                <span class="text-xs text-stone-500 font-bold uppercase mt-2 block">100% Accesible</span>
                             </div>
                         </div>
                     </div>
                     <div class="relative">
-                        <div class="aspect-w-4 aspect-h-5 rounded-2xl overflow-hidden shadow-2xl">
-                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80" alt="Ambiente en Costa Adeje" class="w-full h-[480px] object-cover rounded-2xl">
+                        <div class="aspect-w-4 aspect-h-5 rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
+                            <img src="https://images.unsplash.com/photo-1525648873727-4cb2979261cb?auto=format&fit=crop&w=1000&q=80" alt="Ambiente retro" class="w-full h-[480px] object-cover rounded-xl sepia-filter">
                         </div>
-                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden sm:block max-w-xs border border-stone-100">
+                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden sm:block max-w-xs border border-stone-200">
                             <div class="flex items-center gap-3 text-brand-gold mb-2">
                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                             </div>
-                            <p class="text-xs text-stone-700 italic">"Una experiencia gastronómica fantástica en el sur de Tenerife. La atención y los platos son inmejorables."</p>
+                            <p class="text-xs text-stone-700 italic font-medium">"Volver a escuchar a los Beatles mientras disfrutas de una comida casera excelente en un sillón comodísimo. Me sentí como a mis 20 años."</p>
                         </div>
                     </div>
                 </div>
@@ -195,28 +203,28 @@
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                         <div class="md:col-span-5 flex justify-center">
                             <div class="relative group">
-                                <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-stone-200">
-                                    <img src="director.jpg" alt="Radkha Bolshiyanova — Directora" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80'">
+                                <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-stone-200 bg-stone-100">
+                                    <img src="director.jpg" alt="Radkha Bolshiyanova — Directora" class="w-full h-full object-cover object-top sepia-filter transition-transform duration-500">
                                 </div>
-                                <div class="absolute -bottom-4 -right-4 bg-brand-terracotta text-white px-4 py-2 rounded-xl text-xs font-semibold shadow-lg flex items-center gap-2">
-                                    <i class="fa-solid fa-award text-brand-gold"></i> Dirección General
+                                <div class="absolute -bottom-4 -right-4 bg-brand-sage text-white px-4 py-2 rounded-xl text-xs font-bold shadow-lg flex items-center gap-2">
+                                    <i class="fa-solid fa-heart text-brand-gold"></i> Alma del Proyecto
                                 </div>
                             </div>
                         </div>
 
                         <div class="md:col-span-7 space-y-4 text-center md:text-left">
-                            <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Liderazgo & Compromiso</span>
+                            <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Un Compromiso con Nuestra Generación</span>
                             <h3 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900">Radkha Bolshiyanova</h3>
                             <p class="text-stone-500 text-sm font-semibold uppercase tracking-wider">Directora de La Casa De Todos</p>
                             
                             <p class="text-stone-600 leading-relaxed text-sm sm:text-base pt-2">
-                                Bajo la dirección de <strong>Radkha Bolshiyanova</strong>, <em>La Casa De Todos</em> en Costa Adeje (Av. Moscú 1) se ha consolidado como un punto de encuentro referente para residentes y visitantes de Tenerife Sur. Su compromiso con la excelencia en el servicio, la selección cuidadosa de los ingredientes locales y la atención cercana garantizan una experiencia inolvidable en cada visita.
+                                Bajo la dirección de <strong>Radkha Bolshiyanova</strong>, <em>La Casa De Todos</em> en Calle La Habana 1 se ha transformado en un refugio nostálgico. Radkha comprendió que existía una necesidad real de un espacio donde las personas de más de 70 años pudieran reunirse con total comodidad, sin ruidos estridentes y con una atención que recuerda a la hospitalidad de antaño. Su visión es sencilla: hacer que cada visitante reviva sus mejores recuerdos rodeado de buena comida, buen servicio y la mejor música de la historia.
                             </p>
 
-                            <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs font-medium text-stone-700">
-                                <span class="px-3 py-1.5 bg-brand-sand/60 rounded-lg border border-brand-sand"><i class="fa-solid fa-user-check text-brand-terracotta mr-1.5"></i> Gestión & Excelencia</span>
-                                <span class="px-3 py-1.5 bg-brand-sand/60 rounded-lg border border-brand-sand"><i class="fa-solid fa-location-dot text-brand-terracotta mr-1.5"></i> Av. Moscú 1, Adeje</span>
-                                <span class="px-3 py-1.5 bg-brand-sand/60 rounded-lg border border-brand-sand"><i class="fa-solid fa-heart text-brand-terracotta mr-1.5"></i> Pasión por la Gastronomía</span>
+                            <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs font-bold text-stone-700">
+                                <span class="px-3 py-1.5 bg-brand-sand/60 rounded-lg border border-brand-sand"><i class="fa-solid fa-mug-hot text-brand-terracotta mr-1.5"></i> Trato Familiar</span>
+                                <span class="px-3 py-1.5 bg-brand-sand/60 rounded-lg border border-brand-sand"><i class="fa-solid fa-music text-brand-terracotta mr-1.5"></i> Pasión por los 60s</span>
+                                <span class="px-3 py-1.5 bg-brand-sand/60 rounded-lg border border-brand-sand"><i class="fa-solid fa-location-dot text-brand-terracotta mr-1.5"></i> Las Américas</span>
                             </div>
                         </div>
                     </div>
@@ -225,96 +233,96 @@
             </div>
         </section>
 
-        <!-- Services Section (Servicios) -->
-        <section id="services" class="py-16 md:py-24 bg-brand-sand/40">
+        <!-- Services Section -->
+        <section id="services" class="py-16 md:py-24 bg-stone-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Experiencias y Eventos</span>
-                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-900 mt-2 mb-4">Nuestros Servicios</h2>
-                    <p class="text-stone-600">Haz clic en cualquier tarjeta para ver los detalles completos de cada experiencia.</p>
+                    <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Lo que ofrecemos</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-900 mt-2 mb-4">Experiencias con Historia</h2>
+                    <p class="text-stone-600">Haz clic en cualquier tarjeta para ver cómo hacemos de tu visita un momento inolvidable.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="servicesGrid">
                     <!-- Service Card 1 -->
-                    <div onclick="openServiceDetail('events')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-200/60 flex flex-col">
+                    <div onclick="openServiceDetail('events')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Eventos y Banquetes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-semibold">Bajo Reserva</span>
+                            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" alt="Guateques" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
+                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Bajo Reserva</span>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
-                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Eventos y Celebraciones</h3>
-                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Organización de cumpleaños, aniversarios y comidas de empresa con menús personalizados.</p>
+                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Guateques y Celebraciones</h3>
+                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Celebra aniversarios, bodas de oro o cumpleaños reuniendo a tus seres queridos al más puro estilo de un guateque de los 60.</p>
                             </div>
-                            <span class="inline-flex items-center text-sm font-semibold text-brand-terracotta group-hover:translate-x-1 transition-transform">
+                            <span class="inline-flex items-center text-sm font-bold text-brand-terracotta group-hover:translate-x-1 transition-transform">
                                 Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                             </span>
                         </div>
                     </div>
 
                     <!-- Service Card 2 -->
-                    <div onclick="openServiceDetail('terrace')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-200/60 flex flex-col">
+                    <div onclick="openServiceDetail('terrace')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80" alt="Terraza Lounge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-semibold">Tenerife Climate</span>
+                            <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=800&q=80" alt="Terraza Abbey Road" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
+                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Clima Ideal</span>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
-                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Terraza Lounge & Coctelería</h3>
-                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Disfruta del inmejorable clima del sur de Tenerife con nuestra selección de cócteles y aperitivos.</p>
+                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Terraza "Abbey Road"</h3>
+                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Relájate en nuestra terraza acondicionada. Cómoda, sin escalones y perfecta para disfrutar del atardecer con un buen aperitivo.</p>
                             </div>
-                            <span class="inline-flex items-center text-sm font-semibold text-brand-terracotta group-hover:translate-x-1 transition-transform">
+                            <span class="inline-flex items-center text-sm font-bold text-brand-terracotta group-hover:translate-x-1 transition-transform">
                                 Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                             </span>
                         </div>
                     </div>
 
                     <!-- Service Card 3 -->
-                    <div onclick="openServiceDetail('vip')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-200/60 flex flex-col">
+                    <div onclick="openServiceDetail('vip')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Reservados Privados" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-semibold">Exclusivo</span>
+                            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80" alt="Salón de los Clásicos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
+                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Confort Total</span>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
-                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Zonas VIP y Reservados</h3>
-                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Espacios acogedores e íntimos pensados para cenas románticas o reuniones privadas.</p>
+                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Salón de los Clásicos (VIP)</h3>
+                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Un reservado íntimo con sofás orejeros, decoración vintage de motor y un ambiente excepcionalmente tranquilo para charlar.</p>
                             </div>
-                            <span class="inline-flex items-center text-sm font-semibold text-brand-terracotta group-hover:translate-x-1 transition-transform">
+                            <span class="inline-flex items-center text-sm font-bold text-brand-terracotta group-hover:translate-x-1 transition-transform">
                                 Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                             </span>
                         </div>
                     </div>
 
                     <!-- Service Card 4 -->
-                    <div onclick="openServiceDetail('catering')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-200/60 flex flex-col">
+                    <div onclick="openServiceDetail('catering')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80" alt="Catering" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-semibold">En Tenerife Sur</span>
+                            <img src="https://images.unsplash.com/photo-1517246237190-349f7e52a926?auto=format&fit=crop&w=800&q=80" alt="Tardes de Té" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
+                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Repostería</span>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
-                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Servicio de Catering</h3>
-                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Llevamos la calidad de nuestra cocina a tu villa, barco o evento privado en la isla.</p>
+                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Tardes de Té y Recuerdos</h3>
+                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Nuestras famosas meriendas. Cafés de especialidad, tés clásicos y tartas caseras como las que se horneaban en casa antaño.</p>
                             </div>
-                            <span class="inline-flex items-center text-sm font-semibold text-brand-terracotta group-hover:translate-x-1 transition-transform">
+                            <span class="inline-flex items-center text-sm font-bold text-brand-terracotta group-hover:translate-x-1 transition-transform">
                                 Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                             </span>
                         </div>
                     </div>
 
                     <!-- Service Card 5 -->
-                    <div onclick="openServiceDetail('tastings')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-200/60 flex flex-col">
+                    <div onclick="openServiceDetail('tastings')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80" alt="Catas de Vinos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-semibold">Vinos Canarios</span>
+                            <img src="https://images.unsplash.com/photo-1464375117522-131205147747?auto=format&fit=crop&w=800&q=80" alt="Música en Vivo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
+                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Los Beatles</span>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between">
                             <div>
-                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Catas y Maridaje</h3>
-                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Degustación de vinos locales de Canarias y seleccionados internacionales maridados por nuestro sumiller.</p>
+                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Música en Vivo (Tributos)</h3>
+                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Cenas amenizadas con bandas acústicas y tributos a The Beatles. Volumen controlado para no interrumpir tu conversación.</p>
                             </div>
-                            <span class="inline-flex items-center text-sm font-semibold text-brand-terracotta group-hover:translate-x-1 transition-transform">
+                            <span class="inline-flex items-center text-sm font-bold text-brand-terracotta group-hover:translate-x-1 transition-transform">
                                 Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
                             </span>
                         </div>
@@ -323,31 +331,30 @@
             </div>
         </section>
 
-        <!-- Restaurant Menu Section (Menú del Restaurante) -->
+        <!-- Restaurant Menu Section -->
         <section id="menu" class="py-16 md:py-24 bg-brand-beige">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Carta Gastronómica</span>
-                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-900 mt-2 mb-4">Menú del Restaurante</h2>
-                    <p class="text-stone-600">Sabor, frescura y la esencia del Mediterráneo y las Islas Canarias.</p>
+                    <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Recetas de Antaño</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-900 mt-2 mb-4">Nuestro Menú Clásico</h2>
+                    <p class="text-stone-700">Cocina tradicional, elaborada con cariño, sin ingredientes extraños. Sabores de los que siempre triunfan.</p>
                 </div>
 
                 <!-- Search & Filters -->
                 <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
                     <!-- Category Tabs -->
                     <div class="flex flex-wrap justify-center gap-2 w-full md:w-auto" id="menuTabs">
-                        <button onclick="filterMenu('all')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-brand-terracotta text-white shadow-sm transition-all" data-category="all">Todos</button>
-                        <button onclick="filterMenu('tapas')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-200" data-category="tapas">Tapas Canarias</button>
-                        <button onclick="filterMenu('starters')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-200" data-category="starters">Entrantes</button>
-                        <button onclick="filterMenu('mains')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-200" data-category="mains">Carnes y Pescados</button>
-                        <button onclick="filterMenu('desserts')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-200" data-category="desserts">Postres</button>
-                        <button onclick="filterMenu('drinks')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-200" data-category="drinks">Vinos y Cócteles</button>
+                        <button onclick="filterMenu('all')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-brand-terracotta text-white shadow-sm transition-all border border-brand-terracotta" data-category="all">Todos</button>
+                        <button onclick="filterMenu('tapas')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-300" data-category="tapas">Para Picar</button>
+                        <button onclick="filterMenu('starters')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-300" data-category="starters">De Cuchara y Huerto</button>
+                        <button onclick="filterMenu('mains')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-300" data-category="mains">Carnes y Pescados</button>
+                        <button onclick="filterMenu('desserts')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-300" data-category="desserts">Postres Caseros</button>
                     </div>
 
                     <!-- Search Input -->
                     <div class="relative w-full md:w-72">
-                        <input type="text" id="menuSearch" oninput="searchMenu()" placeholder="Buscar plato o ingrediente..." 
-                               class="w-full pl-10 pr-4 py-2.5 rounded-full border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-terracotta/50 text-sm">
+                        <input type="text" id="menuSearch" oninput="searchMenu()" placeholder="Buscar receta..." 
+                               class="w-full pl-10 pr-4 py-2.5 rounded-full border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-terracotta/50 text-sm font-medium bg-white">
                         <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-stone-400"></i>
                     </div>
                 </div>
@@ -360,26 +367,26 @@
         </section>
 
         <!-- Gallery Section -->
-        <section id="gallery" class="py-16 md:py-24 bg-stone-900 text-white">
+        <section id="gallery" class="py-16 md:py-24 bg-stone-900 text-white border-t border-b border-brand-sage/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-brand-gold uppercase tracking-widest text-xs font-bold">Galería</span>
-                    <h2 class="font-serif text-3xl sm:text-5xl font-bold mt-2 mb-4">Momentos en La Casa De Todos</h2>
-                    <p class="text-stone-400">Un vistazo a nuestras instalaciones, terraza y creaciones culinarias.</p>
+                    <span class="text-brand-gold uppercase tracking-widest text-xs font-bold">Galería Nostálgica</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold mt-2 mb-4">El Álbum de los Recuerdos</h2>
+                    <p class="text-stone-400 text-lg">Pasea por nuestras instalaciones llenas de detalles de la época del motor y el Rock & Roll.</p>
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Restaurante Interior" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&w=1200&q=80')">
+                        <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&w=600&q=80" alt="Discos de vinilo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
                     </div>
-                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80" alt="Platos mediterráneos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=1200&q=80')">
+                        <img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=600&q=80" alt="Detalle coche clásico" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
                     </div>
-                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" alt="Vinos Canarios" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1496293455970-f8581aae0e4b?auto=format&fit=crop&w=1200&q=80')">
+                        <img src="https://images.unsplash.com/photo-1496293455970-f8581aae0e4b?auto=format&fit=crop&w=600&q=80" alt="Radio antigua" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
                     </div>
-                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80" alt="Terraza Bar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1555529902-5261145633bf?auto=format&fit=crop&w=1200&q=80')">
+                        <img src="https://images.unsplash.com/photo-1555529902-5261145633bf?auto=format&fit=crop&w=600&q=80" alt="Decoración Retro Diner" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
                     </div>
                 </div>
             </div>
@@ -392,107 +399,110 @@
                     
                     <!-- Contact Information -->
                     <div>
-                        <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Encuéntranos</span>
-                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-900 mt-2 mb-6">Ubicación y Contacto</h2>
-                        <p class="text-stone-600 mb-8">
-                            Estamos ubicados en una de las mejores zonas de Costa Adeje. Te esperamos para ofrecerte una experiencia inolvidable.
+                        <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Ven a Visitarnos</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-900 mt-2 mb-6">Ubicación y Reservas</h2>
+                        <p class="text-stone-700 mb-8 text-lg">
+                            Estamos ubicados en pleno corazón de Las Américas. Fácil acceso, sin escalones y preparado para recibirle como se merece.
                         </p>
 
                         <div class="space-y-6">
                             <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-brand-sand flex items-center justify-center text-brand-terracotta text-xl shrink-0">
+                                <div class="w-12 h-12 rounded-xl bg-brand-sand flex items-center justify-center text-brand-terracotta text-xl shrink-0 border border-stone-300">
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-stone-900">Dirección Exacta</h4>
-                                    <p class="text-stone-600 text-sm">Av. Moscú 1, 38660 Costa Adeje, Santa Cruz de Tenerife</p>
+                                    <h4 class="font-bold text-stone-900 text-lg">Dirección</h4>
+                                    <p class="text-stone-600">Calle La Habana 1, Las Américas<br>38650, Santa Cruz de Tenerife</p>
                                 </div>
                             </div>
 
                             <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-brand-sand flex items-center justify-center text-brand-terracotta text-xl shrink-0">
+                                <div class="w-12 h-12 rounded-xl bg-brand-sand flex items-center justify-center text-brand-terracotta text-xl shrink-0 border border-stone-300">
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-stone-900">Teléfono / WhatsApp</h4>
-                                    <p class="text-stone-600 text-sm">+34 922 00 00 00 / +34 600 00 00 00</p>
+                                    <h4 class="font-bold text-stone-900 text-lg">Teléfono de Reservas</h4>
+                                    <p class="text-stone-600">Llámenos al: +34 922 00 00 00</p>
                                 </div>
                             </div>
 
                             <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-brand-sand flex items-center justify-center text-brand-terracotta text-xl shrink-0">
+                                <div class="w-12 h-12 rounded-xl bg-brand-sand flex items-center justify-center text-brand-terracotta text-xl shrink-0 border border-stone-300">
                                     <i class="fa-solid fa-clock"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-bold text-stone-900">Horario de Apertura</h4>
-                                    <p class="text-stone-600 text-sm">Lunes a Domingo: 12:00 – 23:00</p>
+                                    <h4 class="font-bold text-stone-900 text-lg">Horario de Apertura</h4>
+                                    <p class="text-stone-600">Lunes a Domingo: 12:00 – 23:00</p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Map Card Placeholder -->
-                        <div class="mt-8 rounded-2xl overflow-hidden shadow-md border border-stone-200">
+                        <!-- Map Card -->
+                        <div class="mt-8 rounded-2xl overflow-hidden shadow-lg border-4 border-white">
                             <iframe 
-                                class="w-full h-56" 
+                                class="w-full h-64 sepia-filter" 
                                 style="border:0;" 
                                 loading="lazy" 
                                 allowfullscreen 
                                 referrerpolicy="no-referrer-when-downgrade" 
-                                src="https://maps.google.com/maps?q=Av.%20Mosc%C3%BA%201,%20Costa%20Adeje&t=&z=15&ie=UTF8&iwloc=&output=embed">
+                                src="https://maps.google.com/maps?q=Calle%20La%20Habana%201,%20Las%20Americas,%20Tenerife&t=&z=15&ie=UTF8&iwloc=&output=embed">
                             </iframe>
                         </div>
                     </div>
 
                     <!-- Reservation Form -->
-                    <div class="bg-white p-8 sm:p-10 rounded-3xl shadow-xl border border-stone-200/80">
-                        <h3 class="font-serif text-2xl font-bold text-stone-900 mb-2">Reserva tu Mesa</h3>
-                        <p class="text-stone-500 text-sm mb-6">Completa el formulario para asegurar tu mesa en Costa Adeje.</p>
+                    <div class="bg-white p-8 sm:p-10 rounded-3xl shadow-xl border border-stone-300/80">
+                        <div class="text-center mb-6">
+                            <i class="fa-solid fa-envelope-open-text text-3xl text-brand-sage mb-3"></i>
+                            <h3 class="font-serif text-3xl font-bold text-stone-900 mb-2">Asegure su Mesa</h3>
+                            <p class="text-stone-600 text-sm">Rellene sus datos y nosotros le preparamos todo.</p>
+                        </div>
 
-                        <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-4">
+                        <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-5">
                             <div>
-                                <label class="block text-xs font-semibold uppercase text-stone-600 mb-1">Nombre Completo *</label>
-                                <input type="text" required placeholder="Carlos Mendoza" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-brand-terracotta/50 focus:outline-none text-sm">
+                                <label class="block text-xs font-bold uppercase text-stone-700 mb-1.5">Nombre Completo *</label>
+                                <input type="text" required placeholder="Ej. Antonio García" class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-brand-terracotta focus:ring-0 focus:outline-none text-sm font-medium bg-stone-50">
                             </div>
 
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <div>
-                                    <label class="block text-xs font-semibold uppercase text-stone-600 mb-1">Teléfono / WhatsApp *</label>
-                                    <input type="tel" required placeholder="+34 600 00 00 00" class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-brand-terracotta/50 focus:outline-none text-sm">
+                                    <label class="block text-xs font-bold uppercase text-stone-700 mb-1.5">Teléfono *</label>
+                                    <input type="tel" required placeholder="Su número de contacto" class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-brand-terracotta focus:ring-0 focus:outline-none text-sm font-medium bg-stone-50">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-semibold uppercase text-stone-600 mb-1">Nº de Personas</label>
-                                    <select class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-brand-terracotta/50 focus:outline-none text-sm">
+                                    <label class="block text-xs font-bold uppercase text-stone-700 mb-1.5">Nº de Personas</label>
+                                    <select class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-brand-terracotta focus:ring-0 focus:outline-none text-sm font-medium bg-stone-50">
                                         <option>2 Personas</option>
                                         <option>3 - 4 Personas</option>
                                         <option>5 - 8 Personas</option>
-                                        <option>Grupo / Evento (+8)</option>
+                                        <option>Grupo / Celebración (+8)</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <div>
-                                    <label class="block text-xs font-semibold uppercase text-stone-600 mb-1">Fecha *</label>
-                                    <input type="date" required class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-brand-terracotta/50 focus:outline-none text-sm">
+                                    <label class="block text-xs font-bold uppercase text-stone-700 mb-1.5">Fecha *</label>
+                                    <input type="date" required class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-brand-terracotta focus:ring-0 focus:outline-none text-sm font-medium bg-stone-50">
                                 </div>
                                 <div>
-                                    <label class="block text-xs font-semibold uppercase text-stone-600 mb-1">Hora *</label>
-                                    <input type="time" required class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-brand-terracotta/50 focus:outline-none text-sm">
+                                    <label class="block text-xs font-bold uppercase text-stone-700 mb-1.5">Hora *</label>
+                                    <input type="time" required class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-brand-terracotta focus:ring-0 focus:outline-none text-sm font-medium bg-stone-50">
                                 </div>
                             </div>
 
                             <div>
-                                <label class="block text-xs font-semibold uppercase text-stone-600 mb-1">Preferencia de Zona / Solicitud</label>
-                                <select class="w-full px-4 py-3 rounded-xl border border-stone-300 focus:ring-2 focus:ring-brand-terracotta/50 focus:outline-none text-sm">
-                                    <option>Mesa en Terraza</option>
-                                    <option>Salón Interior Air-Con</option>
-                                    <option>Zona VIP / Privada</option>
-                                    <option>Consulta para Evento o Cumpleaños</option>
+                                <label class="block text-xs font-bold uppercase text-stone-700 mb-1.5">Necesidades Especiales / Preferencia</label>
+                                <select class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-brand-terracotta focus:ring-0 focus:outline-none text-sm font-medium bg-stone-50">
+                                    <option>Sillón de máximo confort (Interior)</option>
+                                    <option>Mesa en la Terraza (Abbey Road)</option>
+                                    <option>Fácil acceso (Silla de ruedas)</option>
+                                    <option>Reservado para celebración</option>
                                 </select>
                             </div>
 
-                            <button type="submit" class="w-full py-4 bg-brand-terracotta hover:bg-brand-terracottaDark text-white font-semibold rounded-xl shadow-md transition-all duration-200 mt-2">
-                                Confirmar Reserva
+                            <button type="submit" class="w-full py-4 bg-brand-sage hover:bg-brand-dark text-white font-bold rounded-xl shadow-md transition-all duration-300 mt-4 text-lg">
+                                Confirmar mi Reserva
                             </button>
                         </form>
                     </div>
@@ -504,29 +514,32 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-stone-950 text-stone-400 py-12 border-t border-stone-800">
+    <footer class="bg-stone-950 text-stone-400 py-12 border-t-8 border-brand-sage">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-full bg-brand-terracotta text-white flex items-center justify-center font-serif text-lg">L</div>
+            <div class="flex items-center gap-4">
+                <img src="logo.png" alt="La Casa De Todos Logo" class="w-16 h-16 object-contain rounded-full border-2 border-brand-gold bg-white">
                 <div class="flex flex-col">
-                    <span class="font-serif text-lg font-bold text-white tracking-wide">La Casa De Todos</span>
-                    <span class="text-[10px] text-stone-500">Av. Moscú 1, Costa Adeje, Tenerife Sur</span>
+                    <span class="font-serif text-xl font-bold text-white tracking-wide">La Casa De Todos</span>
+                    <span class="text-xs text-stone-500 mt-1">Calle La Habana 1, Las Américas, Tenerife</span>
                 </div>
             </div>
-            <p class="text-xs text-stone-500">© 2026 La Casa De Todos. Todos los derechos reservados.</p>
-            <div class="flex items-center space-x-4 text-stone-400 text-lg">
-                <a href="#" class="hover:text-brand-terracotta transition-colors"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="hover:text-brand-terracotta transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#" class="hover:text-brand-terracotta transition-colors"><i class="fa-brands fa-facebook"></i></a>
+            
+            <p class="text-xs text-stone-500 font-medium">© 2026 La Casa De Todos SL. El lugar de nuestra época.</p>
+            
+            <div class="flex items-center space-x-3 text-stone-400">
+                <span class="text-sm font-bold mr-2">Síguenos:</span>
+                <a href="https://instagram.com/lacasadetodossl" target="_blank" class="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center hover:bg-brand-terracotta hover:text-white transition-all text-xl border border-stone-800">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
             </div>
         </div>
     </footer>
 
     <!-- Service Details Modal -->
-    <div id="serviceModal" class="fixed inset-0 bg-stone-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-fade-in relative">
-            <button onclick="closeModal('serviceModal')" class="absolute top-4 right-4 bg-stone-100 hover:bg-stone-200 w-9 h-9 rounded-full flex items-center justify-center text-stone-600 transition-colors z-10">
-                <i class="fa-solid fa-xmark text-lg"></i>
+    <div id="serviceModal" class="fixed inset-0 bg-stone-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-brand-beige rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-fade-in relative border border-stone-300">
+            <button onclick="closeModal('serviceModal')" class="absolute top-4 right-4 bg-white/80 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center text-stone-800 transition-colors z-10 shadow">
+                <i class="fa-solid fa-xmark text-xl"></i>
             </button>
             <div id="serviceModalContent" class="p-6 sm:p-8">
                 <!-- Dynamically populated -->
@@ -534,179 +547,134 @@
         </div>
     </div>
 
-    <!-- GitHub Pages Deployment Guide Modal -->
-    <div id="githubModal" class="fixed inset-0 bg-stone-950/70 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-fade-in relative p-6 sm:p-8">
-            <button onclick="closeModal('githubModal')" class="absolute top-4 right-4 bg-stone-100 hover:bg-stone-200 w-9 h-9 rounded-full flex items-center justify-center text-stone-600 transition-colors">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-
-            <div class="flex items-center gap-3 text-brand-terracotta mb-4">
-                <i class="fa-brands fa-github text-3xl"></i>
-                <h3 class="font-serif text-2xl font-bold text-stone-900">Pasos para Publicar en GitHub Pages</h3>
-            </div>
-            
-            <p class="text-stone-600 text-sm mb-6 leading-relaxed">
-                Para activar tu sitio web de **La Casa De Todos** en tu repositorio <code class="bg-stone-100 px-2 py-1 rounded text-stone-800 font-mono text-xs">bolshiyanovaradkha/La-Casa-De-Todos</code>:
-            </p>
-
-            <ol class="space-y-4 text-sm text-stone-700 mb-8 list-decimal pl-5">
-                <li>
-                    <strong>Guarda el archivo:</strong> Guarda este código con el nombre exacto de <code class="bg-stone-100 px-2 py-0.5 rounded text-brand-terracotta font-mono">index.html</code>.
-                </li>
-                <li>
-                    <strong>Súbelo a GitHub:</strong> En tu repositorio <a href="https://github.com/bolshiyanovaradkha/La-Casa-De-Todos" target="_blank" class="text-brand-terracotta underline font-semibold">bolshiyanovaradkha/La-Casa-De-Todos</a>, haz clic en <em>Add file</em> ➔ <em>Upload files</em>, arrastra tu <code class="bg-stone-100 px-1 rounded font-mono">index.html</code> y pulsa <em>Commit changes</em>.
-                </li>
-                <li>
-                    <strong>Activa GitHub Pages:</strong>
-                    <ul class="list-disc pl-5 mt-2 space-y-1 text-stone-600">
-                        <li>Ve a <strong>Settings</strong> (Configuración) arriba en el repositorio.</li>
-                        <li>Haz clic en <strong>Pages</strong> en el menú lateral izquierdo.</li>
-                        <li>En <em>Branch</em>, selecciona <code class="bg-stone-100 px-1 rounded font-mono">main</code> (o <code class="bg-stone-100 px-1 rounded font-mono">master</code>) y carpeta <code class="bg-stone-100 px-1 rounded font-mono">/(root)</code>.</li>
-                        <li>Guarda con el botón <strong>Save</strong>.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>¡Listo!</strong> En 1 minuto la web estará disponible en público:<br>
-                    <a href="https://bolshiyanovaradkha.github.io/La-Casa-De-Todos/" target="_blank" class="inline-block mt-2 font-mono text-xs bg-brand-sand px-3 py-2 rounded-lg text-brand-terracotta font-bold hover:underline">
-                        https://bolshiyanovaradkha.github.io/La-Casa-De-Todos/
-                    </a>
-                </li>
-            </ol>
-
-            <div class="flex justify-end">
-                <button onclick="closeModal('githubModal')" class="px-6 py-2.5 bg-stone-900 text-white font-semibold text-sm rounded-xl hover:bg-stone-800 transition-colors">
-                    Entendido
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- Image Lightbox Modal -->
-    <div id="lightboxModal" class="fixed inset-0 bg-stone-950/90 z-50 hidden flex items-center justify-center p-4" onclick="closeModal('lightboxModal')">
-        <img id="lightboxImage" src="" alt="Imagen ampliada" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain">
+    <div id="lightboxModal" class="fixed inset-0 bg-stone-950/95 z-50 hidden flex items-center justify-center p-4" onclick="closeModal('lightboxModal')">
+        <button class="absolute top-6 right-6 text-white hover:text-brand-terracotta text-4xl transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightboxImage" src="" alt="Imagen ampliada" class="max-w-full max-h-[90vh] rounded-xl shadow-2xl object-contain border-4 border-white sepia-filter">
     </div>
 
     <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-6 right-6 bg-stone-900 text-white px-6 py-4 rounded-2xl shadow-2xl hidden z-50 flex items-center gap-3 border border-stone-700">
-        <i class="fa-solid fa-circle-check text-emerald-400 text-xl"></i>
-        <span id="toastMessage" class="text-sm font-medium">¡Solicitud recibida correctamente!</span>
+    <div id="toast" class="fixed bottom-6 right-6 bg-stone-900 text-white px-6 py-4 rounded-2xl shadow-2xl hidden z-50 flex items-center gap-3 border-l-4 border-brand-sage">
+        <i class="fa-solid fa-bell-concierge text-brand-gold text-2xl"></i>
+        <span id="toastMessage" class="text-sm font-bold tracking-wide">¡Solicitud recibida! Le llamaremos enseguida.</span>
     </div>
 
     <!-- JavaScript Logic -->
     <script>
-        // Data for Restaurant Menu
+        // Data for Restaurant Menu - 60s Theme & Classics
         const menuItems = [
             {
                 id: 1,
-                title: "Papas Arrugadas con Mochos Canarios",
+                title: "Croquetas Caseras de la Abuela",
                 category: "tapas",
-                price: "7.50 €",
-                desc: "Papas nativas arrugadas al estilo tradicional canario acompañadas de mojo rojo picón y mojo verde de cilantro.",
-                badge: "Especialidad Canaria",
+                price: "8.50 €",
+                desc: "Como se hacían antes: bechamel muy cremosa trabajada a mano con jamón ibérico y un rebozado crujiente. Ideales para compartir.",
+                badge: "Tradición",
                 image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=500&q=80"
             },
             {
                 id: 2,
-                title: "Queso de Cabra Asado con Miel de Palma",
+                title: "Tabla de Quesos Curados con Membrillo",
                 category: "tapas",
-                price: "9.80 €",
-                desc: "Queso de cabra ahumado a la plancha bañado con miel de palma de La Gomera y frutos secos.",
-                badge: "Sin Gluten",
+                price: "12.00 €",
+                desc: "Selección de quesos curados de las islas, acompañados del clásico dulce de membrillo y nueces peladas.",
+                badge: "Clásico",
                 image: "https://images.unsplash.com/photo-1572656631137-7935297eff55?auto=format&fit=crop&w=500&q=80"
             },
             {
                 id: 3,
-                title: "Tartar de Atún Rojo y Aguacate de Tenerife",
+                title: "Consomé Tradicional al Jerez",
                 category: "starters",
-                price: "16.50 €",
-                desc: "Atún rojo fresco de lonja, aguacate canario, salsa понзу casera y sésamo tostado.",
-                badge: "Especialidad del Chef",
+                price: "7.50 €",
+                desc: "Un caldito reconfortante hecho a fuego lento durante horas, servido calentito con su toque de Jerez y picatostes.",
+                badge: "Muy Suave",
                 image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80"
             },
             {
                 id: 4,
-                title: "Solomillo de Novilla con Reducción de Vino Tinto",
+                title: "Solomillo 'Tributo a los 60'",
                 category: "mains",
-                price: "22.00 €",
-                desc: "Corte tierno de solomillo, puré cremoso de patata y salvia, acompañado de verduras locales a la brasa.",
-                badge: "Recomendado",
+                price: "21.00 €",
+                desc: "Pieza tierna de carne que se deshace en la boca, bañada en una salsa de vino tinto muy suave y acompañada de patatitas al horno.",
+                badge: "Fácil masticación",
                 image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80"
             },
             {
                 id: 5,
-                title: "Cherne a la Espalda con Ajo y Vinagre de Mencey",
+                title: "Pescado del Día al Horno con Verduras",
                 category: "mains",
-                price: "19.50 €",
-                desc: "Pescado fresco del Atlántico preparado a la plancha con sofrito tradicional de ajos y guindilla.",
-                badge: "Pescado Fresco",
+                price: "18.50 €",
+                desc: "Lomo de pescado blanco, limpio de espinas, asado suavemente con verduras de temporada y un hilo de aceite de oliva.",
+                badge: "Saludable",
                 image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=500&q=80"
             },
             {
                 id: 6,
-                title: "Polvito Uruguayo Casero",
-                category: "desserts",
-                price: "6.00 €",
-                desc: "Postre tradicional canario con galleta, dulce de leche, nata montada y suspiro horneado.",
-                badge: "Postre Típico",
-                image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80"
+                title: "Arroz Caldoso del Señorito",
+                category: "mains",
+                price: "19.00 €",
+                desc: "Todo peladito y listo para disfrutar con cuchara. Arroz marinero con un sabor intenso y textura perfecta.",
+                badge: "El Favorito",
+                image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80" // Placeholder, replaced with paella vibe image below if available, but reusing to keep logic
             },
             {
                 id: 7,
-                title: "Vino Blanco Listán Blanco (D.O. Tacoronte-Acentejo)",
-                category: "drinks",
-                price: "18.00 €",
-                desc: "Vino fresco y afrutado, elaborado con uvas volcánicas de Tenerife.",
-                badge: "Vino Canario",
+                title: "Flan de Huevo Casero al Caramelo",
+                category: "desserts",
+                price: "5.50 €",
+                desc: "La receta de 1965. Huevos, leche, azúcar y mucho amor. Textura sedosa que gusta a todo el mundo.",
+                badge: "Postre Estrella",
                 image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=500&q=80"
             },
             {
                 id: 8,
-                title: "Cóctel 'Atardecer en Costa Adeje'",
-                category: "drinks",
-                price: "9.50 €",
-                desc: "Ron de Canarias, zumo de maracuyá, lima fresca y sirope de jengibre artesanal.",
-                badge: "Cóctel de Autor",
+                title: "Leche Frita con Canela",
+                category: "desserts",
+                price: "6.00 €",
+                desc: "Dulce de toda la vida, suave y cremoso por dentro, espolvoreado con azúcar y canela.",
+                badge: "Recuerdos",
                 image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=500&q=80"
             }
         ];
 
-        // Services Data in Spanish
+        // Services Data in Spanish with 60s Theme
         const servicesData = {
             events: {
-                title: "Eventos y Celebraciones",
-                image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1000&q=80",
-                price: "Menús grupales desde 35 €/persona",
-                desc: "Celebra tus momentos especiales en Costa Adeje. Ofrecemos espacio adaptado para grupos, cumpleaños, cenas de empresa y bodas íntimas.",
-                features: ["Espacio para hasta 100 comensales", "Menús personalizados a medida", "Decoración y música bajo petición", "Gestión integral del evento"]
+                title: "Guateques y Celebraciones",
+                image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1000&q=80",
+                price: "A tu medida",
+                desc: "Reúne a la familia, viejos amigos o compañeros para una celebración inolvidable. Ponemos la música de tu juventud, el menú a vuestro gusto y todo el cariño para que sea una tarde perfecta.",
+                features: ["Acceso cómodo y fácil sin barreras", "Menús tradicionales adaptables (bajos en sal, sin azúcar, etc.)", "Música de los años 50, 60 y 70", "Trato cercano y sin prisas"]
             },
             terrace: {
-                title: "Terraza Lounge & Coctelería",
-                image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1000&q=80",
-                price: "Cócteles desde 8.50 €",
-                desc: "El clima privilegiado de Costa Adeje se disfruta mejor al aire libre. Disfruta de una copa, un picoteo gourmet o una cena romántica en nuestra terraza.",
-                features: ["Zona al aire libre", "Cócteles de autor y clásicos", "Ambiente acogedor con música chill-out", "Servicio continuo de cocina"]
+                title: "Terraza 'Abbey Road'",
+                image: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1000&q=80",
+                price: "Clima inmejorable",
+                desc: "Un rincón exterior decorado con toques del motor clásico europeo. Ideal para respirar la brisa de Las Américas desde unos sillones verdaderamente confortables.",
+                features: ["Sillones ergonómicos y cálidos", "Servicio en mesa atento", "Vistas tranquilas, lejos del bullicio", "Zona de sombra y temperatura ideal"]
             },
             vip: {
-                title: "Zonas VIP y Reservados",
-                image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80",
-                price: "Reserva prioritaria",
-                desc: "Salones rústicos y elegantes pensados para máxima privacidad, reuniones ejecutivas o celebraciones de grupo reducido.",
-                features: ["Capacidad reducida e íntima", "Atención prioritaria y personalizada", "Propuestas de maridaje exclusivas", "Privacidad garantizada"]
+                title: "Salón de los Clásicos",
+                image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1000&q=80",
+                price: "Reservado Exclusivo",
+                desc: "Para los que buscan la máxima tranquilidad. Un salón apartado con acústica cuidada para que puedas charlar horas y horas sin forzar la voz, rodeado de recuerdos de época.",
+                features: ["Música de fondo a volumen bajo", "Sofás y butacas clásicas", "Luz cálida y acogedora", "Atención prioritaria del equipo"]
             },
             catering: {
-                title: "Servicio de Catering en Tenerife Sur",
-                image: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1000&q=80",
-                price: "Presupuesto sin compromiso",
-                desc: "Llevamos la experiencia gastronómica de La Casa De Todos directamente a tu villa, barco o local en todo el sur de Tenerife.",
-                features: ["Servicio en villas y eventos privados", "Menú canario e internacional", "Personal de sala y cocineros", "Montaje y menaje incluido"]
+                title: "Tardes de Té y Recuerdos",
+                image: "https://images.unsplash.com/photo-1517246237190-349f7e52a926?auto=format&fit=crop&w=1000&q=80",
+                price: "Meriendas de Antaño",
+                desc: "¿Hace cuánto que no disfrutas de una buena merienda? Volvemos a la tradición de la tarde: tés, cafés servidos en buena loza y repostería casera hecha cada mañana.",
+                features: ["Variedad de infusiones digestivas", "Tartas y bizcochos muy tiernos", "Ambiente relajado de tarde", "El mejor café de Las Américas"]
             },
             tastings: {
-                title: "Catas y Maridaje de Vinos",
-                image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1000&q=80",
-                price: "Experiencia desde 28 €/persona",
-                desc: "Descubre el secreto de las uvas volcánicas de Tenerife con maridajes guiados de quesos y productos autóctonos.",
-                features: ["Selección de vinos D.O. de Canarias", "Tabla de quesos y chacinería local", "Explicación por sumiller", "Grupos reducidos"]
+                title: "Música en Vivo: Tributos a los 60",
+                image: "https://images.unsplash.com/photo-1464375117522-131205147747?auto=format&fit=crop&w=1000&q=80",
+                price: "Fines de Semana",
+                desc: "Revive la época dorada con grupos en directo que rinden homenaje a The Beatles, Elvis, Frank Sinatra y los grandes del pop español de los 60. Siempre a un volumen respetuoso.",
+                features: ["Música en formato acústico suave", "Los clásicos que te hacen sonreír", "Ambiente seguro y festivo", "Terminamos temprano para descansar bien"]
             }
         };
 
@@ -718,21 +686,21 @@
             grid.innerHTML = '';
 
             if (items.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-stone-500">No se encontraron platos. Intenta con otra búsqueda.</div>`;
+                grid.innerHTML = `<div class="col-span-full text-center py-12 text-stone-500 font-medium">No hemos encontrado esa receta. ¡Prueba buscando otra!</div>`;
                 return;
             }
 
             items.forEach(item => {
-                const badgeHTML = item.badge ? `<span class="bg-brand-terracotta text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">${item.badge}</span>` : '';
+                const badgeHTML = item.badge ? `<span class="bg-brand-sage text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-md shadow-sm">${item.badge}</span>` : '';
                 grid.innerHTML += `
-                    <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200/60 flex flex-col sm:flex-row gap-4 items-center hover:shadow-md transition-shadow">
-                        <img src="${item.image}" alt="${item.title}" class="w-full sm:w-32 h-32 object-cover rounded-xl shrink-0">
+                    <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 flex flex-col sm:flex-row gap-5 items-center hover:border-brand-terracotta transition-colors group">
+                        <img src="${item.image}" alt="${item.title}" class="w-full sm:w-32 h-32 object-cover rounded-xl shrink-0 sepia-filter group-hover:filter-none transition-all duration-700">
                         <div class="flex-grow w-full">
                             <div class="flex items-start justify-between gap-2 mb-1">
-                                <h3 class="font-serif text-xl font-bold text-stone-900 leading-snug">${item.title}</h3>
-                                <span class="font-bold text-brand-terracotta font-serif text-lg whitespace-nowrap">${item.price}</span>
+                                <h3 class="font-serif text-xl font-bold text-stone-900 leading-snug group-hover:text-brand-terracotta transition-colors">${item.title}</h3>
+                                <span class="font-bold text-stone-800 font-serif text-lg whitespace-nowrap bg-stone-100 px-2 py-1 rounded">${item.price}</span>
                             </div>
-                            <p class="text-stone-500 text-xs sm:text-sm mb-3 leading-relaxed">${item.desc}</p>
+                            <p class="text-stone-600 text-sm mb-4 leading-relaxed font-medium">${item.desc}</p>
                             <div>${badgeHTML}</div>
                         </div>
                     </div>
@@ -746,9 +714,9 @@
             
             document.querySelectorAll('.menu-tab-btn').forEach(btn => {
                 if (btn.dataset.category === category) {
-                    btn.className = "menu-tab-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-brand-terracotta text-white shadow-sm transition-all";
+                    btn.className = "menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-brand-terracotta text-white shadow-sm transition-all border border-brand-terracotta";
                 } else {
-                    btn.className = "menu-tab-btn px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-200";
+                    btn.className = "menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-300";
                 }
             });
 
@@ -789,18 +757,20 @@
 
             const modalContent = document.getElementById('serviceModalContent');
             modalContent.innerHTML = `
-                <img src="${data.image}" alt="${data.title}" class="w-full h-64 object-cover rounded-2xl mb-6">
-                <span class="text-brand-terracotta font-bold text-sm uppercase tracking-wider">${data.price}</span>
-                <h3 class="font-serif text-3xl font-bold text-stone-900 mt-1 mb-4">${data.title}</h3>
-                <p class="text-stone-600 text-sm leading-relaxed mb-6">${data.desc}</p>
+                <img src="${data.image}" alt="${data.title}" class="w-full h-64 object-cover rounded-2xl mb-6 sepia-filter shadow-md border-4 border-white">
+                <span class="bg-brand-sage text-white px-3 py-1 rounded font-bold text-xs uppercase tracking-wider shadow-sm">${data.price}</span>
+                <h3 class="font-serif text-3xl font-bold text-stone-900 mt-4 mb-4">${data.title}</h3>
+                <p class="text-stone-700 text-base leading-relaxed mb-6 font-medium">${data.desc}</p>
                 
-                <h4 class="font-bold text-stone-900 mb-3 text-sm">Detalles del servicio:</h4>
-                <ul class="space-y-2 mb-8">
-                    ${data.features.map(f => `<li class="flex items-center text-sm text-stone-700"><i class="fa-solid fa-check text-brand-terracotta mr-3"></i> ${f}</li>`).join('')}
-                </ul>
+                <div class="bg-white p-5 rounded-xl border border-stone-200 mb-8">
+                    <h4 class="font-bold text-brand-terracotta mb-4 text-sm uppercase tracking-wide">Por qué te encantará:</h4>
+                    <ul class="space-y-3">
+                        ${data.features.map(f => `<li class="flex items-center text-sm font-bold text-stone-700"><i class="fa-solid fa-check text-brand-sage mr-3 text-lg"></i> ${f}</li>`).join('')}
+                    </ul>
+                </div>
 
-                <a href="#contacts" onclick="closeModal('serviceModal')" class="block text-center w-full py-3.5 bg-brand-terracotta hover:bg-brand-terracottaDark text-white font-semibold rounded-xl shadow transition-colors">
-                    Solicitar o Reservar este Servicio
+                <a href="#contacts" onclick="closeModal('serviceModal')" class="block text-center w-full py-4 bg-brand-terracotta hover:bg-brand-terracottaDark text-white font-bold rounded-xl shadow-lg transition-all text-lg">
+                    Quiero Reservar esta Experiencia
                 </a>
             `;
 
@@ -825,7 +795,7 @@
         // Booking Form Handling
         function handleBookingSubmit(e) {
             e.preventDefault();
-            showToast("¡Gracias! Hemos recibido tu reserva. Nos pondremos en contacto contigo pronto.");
+            showToast("¡Recibido! Nos pondremos en contacto con usted en breve para confirmar.");
             e.target.reset();
         }
 
@@ -836,7 +806,7 @@
             toast.classList.remove('hidden');
             setTimeout(() => {
                 toast.classList.add('hidden');
-            }, 4000);
+            }, 5000);
         }
 
         // Initial Load
