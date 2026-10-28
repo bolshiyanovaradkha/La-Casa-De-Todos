@@ -21,14 +21,13 @@
                 extend: {
                     colors: {
                         brand: {
-                            // Vintage 60s color palette
-                            terracotta: '#D2691E', // Retro Orange/Brown
+                            terracotta: '#D2691E',
                             terracottaDark: '#A0522D',
-                            beige: '#F4EFE6', // Warm vintage paper
+                            beige: '#F4EFE6',
                             sand: '#E8DFD1',
-                            dark: '#2F2E2C', // Softened black
+                            dark: '#2F2E2C',
                             gold: '#D4AF37',
-                            sage: '#556B2F' // Vintage Olive Green
+                            sage: '#556B2F'
                         }
                     },
                     fontFamily: {
@@ -50,8 +49,9 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        /* Vintage 60s Filter applied to original working images */
         .sepia-filter {
-            filter: sepia(0.4) contrast(1.1) brightness(0.9);
+            filter: sepia(0.5) contrast(1.1) brightness(0.9);
         }
     </style>
 </head>
@@ -120,10 +120,10 @@
 
         <!-- Hero Section -->
         <section class="relative min-h-[85vh] flex items-center justify-center bg-stone-900 overflow-hidden">
-            <!-- Background Image - Vintage Car / 60s Vibe -->
-            <img src="https://images.unsplash.com/photo-1493225457124-a31d618fe477?auto=format&fit=crop&w=1920&q=80" 
-                 alt="Coche clásico años 60 La Casa De Todos" 
-                 class="absolute inset-0 w-full h-full object-cover opacity-40 sepia-filter">
+            <!-- Background Image -->
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80" 
+                 alt="Restaurante La Casa De Todos" 
+                 class="absolute inset-0 w-full h-full object-cover opacity-50 sepia-filter">
             <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/50 to-stone-950/70"></div>
 
             <div class="relative max-w-5xl mx-auto px-4 text-center text-white py-20 z-10">
@@ -135,13 +135,13 @@
 
                 <!-- Quick Info Badges -->
                 <div class="flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto mb-10 text-xs sm:text-sm text-stone-200">
-                    <span class="bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                    <span class="bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
                         <i class="fa-solid fa-location-dot text-brand-terracotta mr-1.5"></i> Calle La Habana 1, Las Américas
                     </span>
-                    <span class="bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                    <span class="bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
                         <i class="fa-solid fa-music text-brand-gold mr-1.5"></i> Ambiente y Música Años 60
                     </span>
-                    <span class="bg-black/30 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                    <span class="bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
                         <i class="fa-solid fa-couch text-brand-sage mr-1.5"></i> Confort y Accesibilidad
                     </span>
                 </div>
@@ -187,7 +187,7 @@
                     </div>
                     <div class="relative">
                         <div class="aspect-w-4 aspect-h-5 rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
-                            <img src="https://images.unsplash.com/photo-1525648873727-4cb2979261cb?auto=format&fit=crop&w=1000&q=80" alt="Ambiente retro" class="w-full h-[480px] object-cover rounded-xl sepia-filter">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80" alt="Ambiente retro" class="w-full h-[480px] object-cover rounded-xl sepia-filter">
                         </div>
                         <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden sm:block max-w-xs border border-stone-200">
                             <div class="flex items-center gap-3 text-brand-gold mb-2">
@@ -204,7 +204,7 @@
                         <div class="md:col-span-5 flex justify-center">
                             <div class="relative group">
                                 <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-stone-200 bg-stone-100">
-                                    <img src="director.jpg" alt="Radkha Bolshiyanova — Directora" class="w-full h-full object-cover object-top sepia-filter transition-transform duration-500">
+                                    <img src="director.jpg" alt="Radkha Bolshiyanova — Directora" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover object-top sepia-filter transition-transform duration-500">
                                 </div>
                                 <div class="absolute -bottom-4 -right-4 bg-brand-sage text-white px-4 py-2 rounded-xl text-xs font-bold shadow-lg flex items-center gap-2">
                                     <i class="fa-solid fa-heart text-brand-gold"></i> Alma del Proyecto
@@ -246,7 +246,7 @@
                     <!-- Service Card 1 -->
                     <div onclick="openServiceDetail('events')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" alt="Guateques" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
+                            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Guateques" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
                             <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Bajo Reserva</span>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between">
@@ -263,7 +263,7 @@
                     <!-- Service Card 2 -->
                     <div onclick="openServiceDetail('terrace')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=800&q=80" alt="Terraza Abbey Road" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
+                            <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80" alt="Terraza Abbey Road" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
                             <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Clima Ideal</span>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between">
@@ -280,7 +280,7 @@
                     <!-- Service Card 3 -->
                     <div onclick="openServiceDetail('vip')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=800&q=80" alt="Salón de los Clásicos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
+                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Salón de los Clásicos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
                             <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Confort Total</span>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between">
@@ -297,7 +297,7 @@
                     <!-- Service Card 4 -->
                     <div onclick="openServiceDetail('catering')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1517246237190-349f7e52a926?auto=format&fit=crop&w=800&q=80" alt="Tardes de Té" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
+                            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80" alt="Tardes de Té" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
                             <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Repostería</span>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between">
@@ -314,7 +314,7 @@
                     <!-- Service Card 5 -->
                     <div onclick="openServiceDetail('tastings')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
                         <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1464375117522-131205147747?auto=format&fit=crop&w=800&q=80" alt="Música en Vivo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
+                            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80" alt="Música en Vivo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
                             <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Los Beatles</span>
                         </div>
                         <div class="p-6 flex-grow flex flex-col justify-between">
@@ -376,17 +376,17 @@
                 </div>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?auto=format&fit=crop&w=600&q=80" alt="Discos de vinilo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
+                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80')">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Discos de vinilo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
                     </div>
-                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1508974239320-0a029497e820?auto=format&fit=crop&w=600&q=80" alt="Detalle coche clásico" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
+                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80')">
+                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80" alt="Detalle coche clásico" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
                     </div>
-                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1496293455970-f8581aae0e4b?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1496293455970-f8581aae0e4b?auto=format&fit=crop&w=600&q=80" alt="Radio antigua" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
+                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80')">
+                        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" alt="Radio antigua" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
                     </div>
-                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1555529902-5261145633bf?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1555529902-5261145633bf?auto=format&fit=crop&w=600&q=80" alt="Decoración Retro Diner" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
+                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1200&q=80')">
+                        <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80" alt="Decoración Retro Diner" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
                     </div>
                 </div>
             </div>
@@ -520,7 +520,7 @@
                 <img src="logo.png" alt="La Casa De Todos Logo" class="w-16 h-16 object-contain rounded-full border-2 border-brand-gold bg-white">
                 <div class="flex flex-col">
                     <span class="font-serif text-xl font-bold text-white tracking-wide">La Casa De Todos</span>
-                    <span class="text-xs text-stone-500 mt-1">Calle La Habana 1, Las Américas, Tenerife</span>
+                    <span class="text-xs text-stone-500 mt-1">Calle La Habana 1, Las Américas, Tenerife[cite: 1]</span>
                 </div>
             </div>
             
@@ -617,7 +617,7 @@
                 price: "19.00 €",
                 desc: "Todo peladito y listo para disfrutar con cuchara. Arroz marinero con un sabor intenso y textura perfecta.",
                 badge: "El Favorito",
-                image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80" // Placeholder, replaced with paella vibe image below if available, but reusing to keep logic
+                image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80"
             },
             {
                 id: 7,
@@ -643,35 +643,35 @@
         const servicesData = {
             events: {
                 title: "Guateques y Celebraciones",
-                image: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1000&q=80",
+                image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1000&q=80",
                 price: "A tu medida",
                 desc: "Reúne a la familia, viejos amigos o compañeros para una celebración inolvidable. Ponemos la música de tu juventud, el menú a vuestro gusto y todo el cariño para que sea una tarde perfecta.",
                 features: ["Acceso cómodo y fácil sin barreras", "Menús tradicionales adaptables (bajos en sal, sin azúcar, etc.)", "Música de los años 50, 60 y 70", "Trato cercano y sin prisas"]
             },
             terrace: {
                 title: "Terraza 'Abbey Road'",
-                image: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1000&q=80",
+                image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1000&q=80",
                 price: "Clima inmejorable",
                 desc: "Un rincón exterior decorado con toques del motor clásico europeo. Ideal para respirar la brisa de Las Américas desde unos sillones verdaderamente confortables.",
                 features: ["Sillones ergonómicos y cálidos", "Servicio en mesa atento", "Vistas tranquilas, lejos del bullicio", "Zona de sombra y temperatura ideal"]
             },
             vip: {
                 title: "Salón de los Clásicos",
-                image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1000&q=80",
+                image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80",
                 price: "Reservado Exclusivo",
                 desc: "Para los que buscan la máxima tranquilidad. Un salón apartado con acústica cuidada para que puedas charlar horas y horas sin forzar la voz, rodeado de recuerdos de época.",
                 features: ["Música de fondo a volumen bajo", "Sofás y butacas clásicas", "Luz cálida y acogedora", "Atención prioritaria del equipo"]
             },
             catering: {
                 title: "Tardes de Té y Recuerdos",
-                image: "https://images.unsplash.com/photo-1517246237190-349f7e52a926?auto=format&fit=crop&w=1000&q=80",
+                image: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1000&q=80",
                 price: "Meriendas de Antaño",
                 desc: "¿Hace cuánto que no disfrutas de una buena merienda? Volvemos a la tradición de la tarde: tés, cafés servidos en buena loza y repostería casera hecha cada mañana.",
                 features: ["Variedad de infusiones digestivas", "Tartas y bizcochos muy tiernos", "Ambiente relajado de tarde", "El mejor café de Las Américas"]
             },
             tastings: {
                 title: "Música en Vivo: Tributos a los 60",
-                image: "https://images.unsplash.com/photo-1464375117522-131205147747?auto=format&fit=crop&w=1000&q=80",
+                image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1000&q=80",
                 price: "Fines de Semana",
                 desc: "Revive la época dorada con grupos en directo que rinden homenaje a The Beatles, Elvis, Frank Sinatra y los grandes del pop español de los 60. Siempre a un volumen respetuoso.",
                 features: ["Música en formato acústico suave", "Los clásicos que te hacen sonreír", "Ambiente seguro y festivo", "Terminamos temprano para descansar bien"]
