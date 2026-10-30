@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Casa De Todos — Restaurante & Recuerdos de los Años 60 en Las Américas</title>
+    <title>La Casa De Todos — Compañía, Comida y Bienestar en Las Américas</title>
     <!-- Favicon -->
-    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <link rel="icon" href="logo.png" type="image/png">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
@@ -21,13 +21,12 @@
                 extend: {
                     colors: {
                         brand: {
-                            terracotta: '#D2691E',
-                            terracottaDark: '#A0522D',
-                            beige: '#F4EFE6',
-                            sand: '#E8DFD1',
-                            dark: '#2F2E2C',
-                            gold: '#D4AF37',
-                            sage: '#556B2F'
+                            // Colores extraídos del nuevo logo
+                            beige: '#F4EFE6', // Fondo crema claro
+                            olive: '#697455', // Verde oliva del tejado y hojas
+                            brown: '#463221', // Marrón oscuro de las figuras y texto
+                            tan: '#D19C6C',   // Tono tostado/corazón
+                            lightOlive: '#8C9A76', // Verde oliva más claro para hovers
                         }
                     },
                     fontFamily: {
@@ -49,54 +48,53 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        /* Vintage 60s Filter applied to original working images */
+        /* Filtro vintage para mantener la estética de los años 60 */
         .sepia-filter {
-            filter: sepia(0.5) contrast(1.1) brightness(0.9);
+            filter: sepia(0.3) contrast(1.05) brightness(0.95);
         }
     </style>
 </head>
-<body class="bg-brand-beige text-brand-dark font-sans antialiased flex flex-col min-h-screen selection:bg-brand-terracotta selection:text-white">
+<body class="bg-brand-beige text-brand-brown font-sans antialiased flex flex-col min-h-screen selection:bg-brand-olive selection:text-white">
 
     <!-- Header Navigation -->
     <header class="fixed top-0 left-0 w-full z-40 transition-all duration-300 flex flex-col shadow-sm" id="mainHeader">
-        <!-- Instagram Reminder Top Bar -->
-        <div class="bg-stone-900 text-white text-xs py-2 text-center flex justify-center items-center gap-3 px-4">
-            <span class="font-medium tracking-wide">Revive la magia de los años 60 con nosotros. Síguenos en Instagram:</span>
-            <a href="https://instagram.com/lacasadetodossl" target="_blank" class="text-brand-gold hover:text-white font-bold transition-colors flex items-center gap-1.5">
+        <!-- Top Bar -->
+        <div class="bg-brand-brown text-brand-beige text-xs py-2 text-center flex justify-center items-center gap-3 px-4">
+            <span class="font-medium tracking-wide">Abiertos todos los días de 08:00 a 23:00. Síguenos en Instagram:</span>
+            <a href="https://instagram.com/lacasadetodossl" target="_blank" class="text-brand-tan hover:text-white font-bold transition-colors flex items-center gap-1.5">
                 <i class="fa-brands fa-instagram text-sm"></i> @lacasadetodossl
             </a>
         </div>
 
-        <div class="bg-brand-beige/95 backdrop-blur-md border-b border-brand-sand/60">
+        <div class="bg-brand-beige/95 backdrop-blur-md border-b border-brand-olive/30">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-                <!-- Logo -->
+                <!-- Logo & Branding -->
                 <a href="#" class="flex items-center gap-3 group">
-                    <img src="logo.png" alt="La Casa De Todos Logo" class="w-12 h-12 object-contain rounded-full shadow-md group-hover:scale-105 transition-transform bg-white">
+                    <img src="logo.png" alt="La Casa De Todos Logo" class="w-14 h-14 object-contain rounded-full shadow-sm group-hover:scale-105 transition-transform bg-white" onerror="this.src='https://via.placeholder.com/150?text=Logo'">
                     <div class="flex flex-col">
-                        <span class="font-serif text-2xl font-bold tracking-wide text-brand-dark group-hover:text-brand-terracotta transition-colors leading-none">La Casa De Todos</span>
-                        <span class="text-[10px] uppercase tracking-widest text-stone-500 font-semibold mt-1">El Refugio de los Años 60 · Las Américas</span>
+                        <span class="font-serif text-2xl font-bold tracking-wide text-brand-brown transition-colors leading-none">La Casa de Todos</span>
+                        <span class="text-[10px] uppercase tracking-widest text-brand-olive font-bold mt-1">Compañía • Comida • Bienestar</span>
                     </div>
                 </a>
 
                 <!-- Desktop Menu -->
-                <nav class="hidden md:flex items-center space-x-8 font-medium text-sm">
-                    <a href="#about" class="text-stone-700 hover:text-brand-terracotta transition-colors">Nuestra Época</a>
-                    <a href="#services" class="text-stone-700 hover:text-brand-terracotta transition-colors">Experiencias</a>
-                    <a href="#menu" class="text-stone-700 hover:text-brand-terracotta transition-colors">Menú Clásico</a>
-                    <a href="#gallery" class="text-stone-700 hover:text-brand-terracotta transition-colors">Recuerdos</a>
-                    <a href="#contacts" class="text-stone-700 hover:text-brand-terracotta transition-colors">Visítanos</a>
+                <nav class="hidden md:flex items-center space-x-6 font-medium text-sm text-brand-brown">
+                    <a href="#about" class="hover:text-brand-tan transition-colors">Nuestro Espacio</a>
+                    <a href="#activities" class="hover:text-brand-tan transition-colors">Actividades Diarias</a>
+                    <a href="#excursions" class="hover:text-brand-tan transition-colors">Excursiones</a>
+                    <a href="#menu" class="hover:text-brand-tan transition-colors">Menú y Cafetería</a>
                 </nav>
 
                 <!-- Actions -->
                 <div class="hidden md:flex items-center gap-3">
-                    <a href="#contacts" class="px-5 py-2.5 bg-brand-sage hover:bg-brand-terracotta text-white text-sm font-semibold rounded-lg shadow-sm hover:shadow transition-all duration-200 flex items-center gap-2">
-                        <i class="fa-solid fa-calendar-check"></i> Reservar Mesa
+                    <a href="#reservations" class="px-5 py-2.5 bg-brand-olive hover:bg-brand-lightOlive text-white text-sm font-bold rounded-full shadow-sm transition-all duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-calendar-check"></i> Reservar Plaza
                     </a>
                 </div>
 
                 <!-- Mobile Hamburger Toggle -->
                 <div class="md:hidden flex items-center gap-2">
-                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="p-2 rounded-md text-stone-700 hover:text-brand-terracotta focus:outline-none">
+                    <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="p-2 rounded-md text-brand-brown focus:outline-none">
                         <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
                     </button>
                 </div>
@@ -104,14 +102,13 @@
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden md:hidden bg-brand-beige border-b border-brand-sand px-4 pt-2 pb-6 space-y-3 font-medium text-base shadow-lg">
-            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-200">Nuestra Época</a>
-            <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-200">Experiencias</a>
-            <a href="#menu" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-200">Menú Clásico</a>
-            <a href="#gallery" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-200">Recuerdos</a>
-            <a href="#contacts" onclick="toggleMobileMenu()" class="block py-2 text-stone-700 hover:text-brand-terracotta border-b border-stone-200">Visítanos</a>
-            <a href="#contacts" onclick="toggleMobileMenu()" class="block text-center w-full py-3 bg-brand-sage text-white font-semibold rounded-lg shadow mt-4">
-                Reservar Mesa
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-beige border-b border-brand-olive/20 px-4 pt-2 pb-6 space-y-3 font-medium text-base shadow-lg">
+            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-brand-brown border-b border-brand-olive/10">Nuestro Espacio</a>
+            <a href="#activities" onclick="toggleMobileMenu()" class="block py-2 text-brand-brown border-b border-brand-olive/10">Actividades Diarias</a>
+            <a href="#excursions" onclick="toggleMobileMenu()" class="block py-2 text-brand-brown border-b border-brand-olive/10">Excursiones</a>
+            <a href="#menu" onclick="toggleMobileMenu()" class="block py-2 text-brand-brown border-b border-brand-olive/10">Menú y Cafetería</a>
+            <a href="#reservations" onclick="toggleMobileMenu()" class="block text-center w-full py-3 bg-brand-olive text-white font-bold rounded-full shadow mt-4">
+                Reservar Plaza
             </a>
         </div>
     </header>
@@ -119,39 +116,36 @@
     <main class="flex-grow pt-[116px]">
 
         <!-- Hero Section -->
-        <section class="relative min-h-[85vh] flex items-center justify-center bg-stone-900 overflow-hidden">
-            <!-- Background Image -->
-            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80" 
-                 alt="Restaurante La Casa De Todos" 
-                 class="absolute inset-0 w-full h-full object-cover opacity-50 sepia-filter">
-            <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/50 to-stone-950/70"></div>
+        <section class="relative min-h-[85vh] flex items-center justify-center bg-brand-brown overflow-hidden">
+            <!-- Background Image - 60s Vibe, Classic Cars, Socializing -->
+            <img src="https://images.unsplash.com/photo-1525648873727-4cb2979261cb?auto=format&fit=crop&w=1920&q=80" 
+                 alt="Coche clásico y ambiente social años 60" 
+                 class="absolute inset-0 w-full h-full object-cover opacity-30 sepia-filter">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-brown via-brand-brown/60 to-transparent"></div>
 
-            <div class="relative max-w-5xl mx-auto px-4 text-center text-white py-20 z-10">
-                <span class="text-brand-gold uppercase tracking-[0.3em] text-xs sm:text-sm font-bold mb-4 block">Un Viaje a la Época Dorada</span>
-                <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight">Revive los Mejores Años</h1>
-                <p class="text-lg sm:text-2xl text-stone-200 font-light max-w-3xl mx-auto mb-8 leading-relaxed">
-                    Donde suena The Beatles, brillan los clásicos del motor y la gastronomía te transporta a los recuerdos más felices. Un espacio diseñado para disfrutar sin prisas en Las Américas.
+            <div class="relative max-w-5xl mx-auto px-4 text-center text-brand-beige py-20 z-10">
+                <span class="text-brand-tan uppercase tracking-[0.3em] text-xs sm:text-sm font-bold mb-4 block">Tu Club Social en Las Américas</span>
+                <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight">Mucho más que un restaurante</h1>
+                <p class="text-lg sm:text-2xl text-brand-beige/90 font-light max-w-3xl mx-auto mb-8 leading-relaxed">
+                    Un espacio diseñado para nuestra generación. Desde las 8:00 hasta las 23:00, disfruta de clases de yoga, tardes de bingo, viajes en grupo y la mejor gastronomía rodeado de un ambiente nostálgico de los años 60 y motor clásico.
                 </p>
 
                 <!-- Quick Info Badges -->
-                <div class="flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto mb-10 text-xs sm:text-sm text-stone-200">
-                    <span class="bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-                        <i class="fa-solid fa-location-dot text-brand-terracotta mr-1.5"></i> Calle La Habana 1, Las Américas
+                <div class="flex flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto mb-10 text-xs sm:text-sm font-medium">
+                    <span class="bg-brand-olive/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-olive/50 text-white">
+                        <i class="fa-solid fa-clock mr-1.5"></i> Abierto Todo el Día: 08:00 - 23:00
                     </span>
-                    <span class="bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-                        <i class="fa-solid fa-music text-brand-gold mr-1.5"></i> Ambiente y Música Años 60
+                    <span class="bg-brand-olive/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-olive/50 text-white">
+                        <i class="fa-solid fa-users mr-1.5"></i> Actividades, Yoga y Bingo
                     </span>
-                    <span class="bg-black/40 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
-                        <i class="fa-solid fa-couch text-brand-sage mr-1.5"></i> Confort y Accesibilidad
+                    <span class="bg-brand-olive/80 backdrop-blur-md px-4 py-2 rounded-full border border-brand-olive/50 text-white">
+                        <i class="fa-solid fa-bus mr-1.5"></i> Excursiones en Grupo
                     </span>
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#menu" class="w-full sm:w-auto px-8 py-4 bg-brand-terracotta hover:bg-brand-terracottaDark text-white font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
-                        Ver Menú Clásico
-                    </a>
-                    <a href="#contacts" class="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-bold rounded-lg border border-white/30 transition-all duration-300">
-                        Reservar mi Mesa
+                    <a href="#reservations" class="w-full sm:w-auto px-8 py-4 bg-brand-tan hover:bg-brand-beige hover:text-brand-brown text-brand-brown font-bold rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                        Apuntarme a las Actividades
                     </a>
                 </div>
             </div>
@@ -162,170 +156,113 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
                     <div>
-                        <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Nuestra Filosofía</span>
-                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-900 mt-2 mb-6">Un Homenaje a Nuestra Generación</h2>
-                        <p class="text-stone-700 leading-relaxed mb-6 text-lg">
-                            Ubicados en <strong>Calle La Habana 1</strong>, en Las Américas (Tenerife), <strong>La Casa De Todos</strong> nace como un abrazo a la nostalgia. Hemos creado un restaurante pensado especialmente para la "generación de oro", donde el confort, los buenos recuerdos y la época de los años 60 son los protagonistas.
+                        <span class="text-brand-olive uppercase tracking-widest text-xs font-bold">Nuestro Propósito</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-brown mt-2 mb-6">Compañía, Comida y Bienestar</h2>
+                        <p class="text-brand-brown/80 leading-relaxed mb-6 text-lg">
+                            <strong>La Casa de Todos</strong> nace de una idea muy clara: crear un hogar fuera de casa. No somos solo un restaurante donde venir a comer; somos un club social activo y vibrante diseñado específicamente para el confort y el disfrute de la generación de oro.
                         </p>
-                        <p class="text-stone-600 leading-relaxed mb-8">
-                            Cada detalle está diseñado para su bienestar: sillones amplios y cómodos, espacios sin barreras, acústica cuidada para poder conversar sin alzar la voz, y una banda sonora inigualable con los grandes éxitos de The Beatles, Elvis y los clásicos de siempre. Aquí, el tiempo se detiene.
+                        <p class="text-brand-brown/80 leading-relaxed mb-8">
+                            Nuestras instalaciones son 100% accesibles, con cómodos sillones y una decoración que rinde homenaje a los años 60, los guateques y los coches clásicos. Aquí siempre hay algo que hacer: desde mantener el cuerpo activo por la mañana, hasta compartir risas en un bingo por la tarde.
                         </p>
-                        <div class="grid grid-cols-3 gap-4 border-t border-brand-sand pt-6 text-center">
+                        <div class="grid grid-cols-3 gap-4 border-t border-brand-olive/20 pt-6 text-center">
                             <div>
-                                <span class="font-serif text-3xl font-bold text-brand-sage block"><i class="fa-solid fa-record-vinyl"></i></span>
-                                <span class="text-xs text-stone-500 font-bold uppercase mt-2 block">Música 60s</span>
+                                <span class="font-serif text-3xl font-bold text-brand-tan block"><i class="fa-solid fa-heart"></i></span>
+                                <span class="text-xs text-brand-brown font-bold uppercase mt-2 block">Bienestar</span>
                             </div>
                             <div>
-                                <span class="font-serif text-3xl font-bold text-brand-sage block"><i class="fa-solid fa-car-side"></i></span>
-                                <span class="text-xs text-stone-500 font-bold uppercase mt-2 block">Coches Clásicos</span>
+                                <span class="font-serif text-3xl font-bold text-brand-tan block"><i class="fa-solid fa-car-side"></i></span>
+                                <span class="text-xs text-brand-brown font-bold uppercase mt-2 block">Motor y 60s</span>
                             </div>
                             <div>
-                                <span class="font-serif text-3xl font-bold text-brand-sage block"><i class="fa-solid fa-wheelchair"></i></span>
-                                <span class="text-xs text-stone-500 font-bold uppercase mt-2 block">100% Accesible</span>
+                                <span class="font-serif text-3xl font-bold text-brand-tan block"><i class="fa-solid fa-mug-hot"></i></span>
+                                <span class="text-xs text-brand-brown font-bold uppercase mt-2 block">Cafetería</span>
                             </div>
                         </div>
                     </div>
                     <div class="relative">
-                        <div class="aspect-w-4 aspect-h-5 rounded-2xl overflow-hidden shadow-2xl border-8 border-white">
-                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80" alt="Ambiente retro" class="w-full h-[480px] object-cover rounded-xl sepia-filter">
-                        </div>
-                        <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden sm:block max-w-xs border border-stone-200">
-                            <div class="flex items-center gap-3 text-brand-gold mb-2">
-                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                            </div>
-                            <p class="text-xs text-stone-700 italic font-medium">"Volver a escuchar a los Beatles mientras disfrutas de una comida casera excelente en un sillón comodísimo. Me sentí como a mis 20 años."</p>
+                        <div class="aspect-w-4 aspect-h-5 rounded-2xl overflow-hidden shadow-xl border-8 border-white bg-white">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1000&q=80" alt="Personas mayores compartiendo" class="w-full h-[480px] object-cover rounded-xl sepia-filter">
                         </div>
                     </div>
                 </div>
-
-                <!-- Director & Leadership Card Section -->
-                <div class="mt-16 bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-stone-200/80">
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                        <div class="md:col-span-5 flex justify-center">
-                            <div class="relative group">
-                                <div class="w-64 h-80 sm:w-72 sm:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-white ring-1 ring-stone-200 bg-stone-100">
-                                    <img src="director.jpg" alt="Radkha Bolshiyanova — Directora" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80'" class="w-full h-full object-cover object-top sepia-filter transition-transform duration-500">
-                                </div>
-                                <div class="absolute -bottom-4 -right-4 bg-brand-sage text-white px-4 py-2 rounded-xl text-xs font-bold shadow-lg flex items-center gap-2">
-                                    <i class="fa-solid fa-heart text-brand-gold"></i> Alma del Proyecto
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="md:col-span-7 space-y-4 text-center md:text-left">
-                            <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Un Compromiso con Nuestra Generación</span>
-                            <h3 class="font-serif text-3xl sm:text-4xl font-bold text-stone-900">Radkha Bolshiyanova</h3>
-                            <p class="text-stone-500 text-sm font-semibold uppercase tracking-wider">Directora de La Casa De Todos</p>
-                            
-                            <p class="text-stone-600 leading-relaxed text-sm sm:text-base pt-2">
-                                Bajo la dirección de <strong>Radkha Bolshiyanova</strong>, <em>La Casa De Todos</em> en Calle La Habana 1 se ha transformado en un refugio nostálgico. Radkha comprendió que existía una necesidad real de un espacio donde las personas de más de 70 años pudieran reunirse con total comodidad, sin ruidos estridentes y con una atención que recuerda a la hospitalidad de antaño. Su visión es sencilla: hacer que cada visitante reviva sus mejores recuerdos rodeado de buena comida, buen servicio y la mejor música de la historia.
-                            </p>
-
-                            <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs font-bold text-stone-700">
-                                <span class="px-3 py-1.5 bg-brand-sand/60 rounded-lg border border-brand-sand"><i class="fa-solid fa-mug-hot text-brand-terracotta mr-1.5"></i> Trato Familiar</span>
-                                <span class="px-3 py-1.5 bg-brand-sand/60 rounded-lg border border-brand-sand"><i class="fa-solid fa-music text-brand-terracotta mr-1.5"></i> Pasión por los 60s</span>
-                                <span class="px-3 py-1.5 bg-brand-sand/60 rounded-lg border border-brand-sand"><i class="fa-solid fa-location-dot text-brand-terracotta mr-1.5"></i> Las Américas</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" class="py-16 md:py-24 bg-stone-200">
+        <!-- Activities Section -->
+        <section id="activities" class="py-16 md:py-24 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Lo que ofrecemos</span>
-                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-900 mt-2 mb-4">Experiencias con Historia</h2>
-                    <p class="text-stone-600">Haz clic en cualquier tarjeta para ver cómo hacemos de tu visita un momento inolvidable.</p>
+                    <span class="text-brand-tan uppercase tracking-widest text-xs font-bold">Un día con nosotros</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-brown mt-2 mb-4">Actividades Diarias</h2>
+                    <p class="text-brand-brown/70">Mantenemos el cuerpo y la mente activos rodeados de buenos amigos.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="servicesGrid">
-                    <!-- Service Card 1 -->
-                    <div onclick="openServiceDetail('events')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
-                        <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Guateques" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
-                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Bajo Reserva</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Activity 1 -->
+                    <div class="bg-brand-beige rounded-3xl p-8 border border-brand-olive/20 shadow-sm hover:shadow-md transition-shadow text-center group">
+                        <div class="w-20 h-20 mx-auto bg-brand-olive text-white rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-person-praying"></i>
                         </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Guateques y Celebraciones</h3>
-                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Celebra aniversarios, bodas de oro o cumpleaños reuniendo a tus seres queridos al más puro estilo de un guateque de los 60.</p>
-                            </div>
-                            <span class="inline-flex items-center text-sm font-bold text-brand-terracotta group-hover:translate-x-1 transition-transform">
-                                Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                            </span>
-                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-brand-brown mb-3">Yoga Adaptado</h3>
+                        <p class="text-brand-brown/70 text-sm mb-4">Clases matutinas diseñadas para mejorar la movilidad, la respiración y el bienestar general, adaptadas a todas las capacidades.</p>
+                        <span class="text-brand-olive font-bold text-sm">Lunes, Miércoles y Viernes</span>
                     </div>
 
-                    <!-- Service Card 2 -->
-                    <div onclick="openServiceDetail('terrace')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
-                        <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80" alt="Terraza Abbey Road" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
-                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Clima Ideal</span>
+                    <!-- Activity 2 -->
+                    <div class="bg-brand-beige rounded-3xl p-8 border border-brand-olive/20 shadow-sm hover:shadow-md transition-shadow text-center group">
+                        <div class="w-20 h-20 mx-auto bg-brand-olive text-white rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-dice"></i>
                         </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Terraza "Abbey Road"</h3>
-                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Relájate en nuestra terraza acondicionada. Cómoda, sin escalones y perfecta para disfrutar del atardecer con un buen aperitivo.</p>
-                            </div>
-                            <span class="inline-flex items-center text-sm font-bold text-brand-terracotta group-hover:translate-x-1 transition-transform">
-                                Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                            </span>
-                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-brand-brown mb-3">Tardes de Bingo</h3>
+                        <p class="text-brand-brown/70 text-sm mb-4">El momento favorito de la tarde. Un ambiente divertido para socializar, reír, tomar un café y ganar estupendos premios.</p>
+                        <span class="text-brand-olive font-bold text-sm">Todos los días a las 17:00</span>
                     </div>
 
-                    <!-- Service Card 3 -->
-                    <div onclick="openServiceDetail('vip')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
-                        <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Salón de los Clásicos" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
-                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Confort Total</span>
+                    <!-- Activity 3 -->
+                    <div class="bg-brand-beige rounded-3xl p-8 border border-brand-olive/20 shadow-sm hover:shadow-md transition-shadow text-center group">
+                        <div class="w-20 h-20 mx-auto bg-brand-olive text-white rounded-full flex items-center justify-center text-3xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-music"></i>
                         </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Salón de los Clásicos (VIP)</h3>
-                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Un reservado íntimo con sofás orejeros, decoración vintage de motor y un ambiente excepcionalmente tranquilo para charlar.</p>
-                            </div>
-                            <span class="inline-flex items-center text-sm font-bold text-brand-terracotta group-hover:translate-x-1 transition-transform">
-                                Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                            </span>
+                        <h3 class="font-serif text-2xl font-bold text-brand-brown mb-3">Música y Guateques</h3>
+                        <p class="text-brand-brown/70 text-sm mb-4">Tardes amenizadas con la mejor música de los años 60 y 70, recordando los grandes clásicos en un entorno inmejorable.</p>
+                        <span class="text-brand-olive font-bold text-sm">Fines de semana</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Excursions Section -->
+        <section id="excursions" class="py-16 md:py-24 bg-brand-brown text-brand-beige border-y border-brand-olive">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1 relative">
+                        <div class="aspect-w-16 aspect-h-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-tan">
+                            <img src="https://images.unsplash.com/photo-1533038590840-1cbea97d4469?auto=format&fit=crop&w=1000&q=80" alt="Excursión en autobús retro" class="w-full h-full object-cover sepia-filter">
                         </div>
                     </div>
-
-                    <!-- Service Card 4 -->
-                    <div onclick="openServiceDetail('catering')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
-                        <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80" alt="Tardes de Té" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
-                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Repostería</span>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Tardes de Té y Recuerdos</h3>
-                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Nuestras famosas meriendas. Cafés de especialidad, tés clásicos y tartas caseras como las que se horneaban en casa antaño.</p>
-                            </div>
-                            <span class="inline-flex items-center text-sm font-bold text-brand-terracotta group-hover:translate-x-1 transition-transform">
-                                Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Service Card 5 -->
-                    <div onclick="openServiceDetail('tastings')" class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group border border-stone-300 flex flex-col">
-                        <div class="relative h-56 overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80" alt="Música en Vivo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 sepia-filter">
-                            <span class="absolute top-4 right-4 bg-white/90 backdrop-blur-md text-brand-terracotta px-3 py-1 rounded-full text-xs font-bold shadow-sm">Los Beatles</span>
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="font-serif text-2xl font-bold text-stone-900 group-hover:text-brand-terracotta transition-colors mb-2">Música en Vivo (Tributos)</h3>
-                                <p class="text-stone-600 text-sm line-clamp-3 mb-4">Cenas amenizadas con bandas acústicas y tributos a The Beatles. Volumen controlado para no interrumpir tu conversación.</p>
-                            </div>
-                            <span class="inline-flex items-center text-sm font-bold text-brand-terracotta group-hover:translate-x-1 transition-transform">
-                                Ver detalles <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                            </span>
-                        </div>
+                    <div class="order-1 lg:order-2">
+                        <span class="text-brand-tan uppercase tracking-widest text-xs font-bold">Descubre y Viaja</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-bold mt-2 mb-6 text-white">Excursiones en Grupo</h2>
+                        <p class="text-brand-beige/80 leading-relaxed mb-6 text-lg">
+                            Porque la aventura no tiene edad. Organizamos excursiones periódicas en grupo por los rincones más bonitos de Tenerife y escapadas a otras islas. 
+                        </p>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-center text-brand-beige font-medium">
+                                <i class="fa-solid fa-check text-brand-tan mr-3 text-xl"></i> Transporte adaptado y cómodo
+                            </li>
+                            <li class="flex items-center text-brand-beige font-medium">
+                                <i class="fa-solid fa-check text-brand-tan mr-3 text-xl"></i> Guías acompañantes de nuestro equipo
+                            </li>
+                            <li class="flex items-center text-brand-beige font-medium">
+                                <i class="fa-solid fa-check text-brand-tan mr-3 text-xl"></i> Almuerzos incluidos en rutas largas
+                            </li>
+                            <li class="flex items-center text-brand-beige font-medium">
+                                <i class="fa-solid fa-check text-brand-tan mr-3 text-xl"></i> Visitas a fincas, museos y naturaleza
+                            </li>
+                        </ul>
+                        <a href="#reservations" class="inline-block px-8 py-4 bg-brand-olive hover:bg-brand-lightOlive text-white font-bold rounded-full shadow-lg transition-colors">
+                            Pedir Info de Próximas Salidas
+                        </a>
                     </div>
                 </div>
             </div>
@@ -335,178 +272,131 @@
         <section id="menu" class="py-16 md:py-24 bg-brand-beige">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Recetas de Antaño</span>
-                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-900 mt-2 mb-4">Nuestro Menú Clásico</h2>
-                    <p class="text-stone-700">Cocina tradicional, elaborada con cariño, sin ingredientes extraños. Sabores de los que siempre triunfan.</p>
-                </div>
-
-                <!-- Search & Filters -->
-                <div class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10">
-                    <!-- Category Tabs -->
-                    <div class="flex flex-wrap justify-center gap-2 w-full md:w-auto" id="menuTabs">
-                        <button onclick="filterMenu('all')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-brand-terracotta text-white shadow-sm transition-all border border-brand-terracotta" data-category="all">Todos</button>
-                        <button onclick="filterMenu('tapas')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-300" data-category="tapas">Para Picar</button>
-                        <button onclick="filterMenu('starters')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-300" data-category="starters">De Cuchara y Huerto</button>
-                        <button onclick="filterMenu('mains')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-300" data-category="mains">Carnes y Pescados</button>
-                        <button onclick="filterMenu('desserts')" class="menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-300" data-category="desserts">Postres Caseros</button>
-                    </div>
-
-                    <!-- Search Input -->
-                    <div class="relative w-full md:w-72">
-                        <input type="text" id="menuSearch" oninput="searchMenu()" placeholder="Buscar receta..." 
-                               class="w-full pl-10 pr-4 py-2.5 rounded-full border border-stone-300 focus:outline-none focus:ring-2 focus:ring-brand-terracotta/50 text-sm font-medium bg-white">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-stone-400"></i>
-                    </div>
+                    <span class="text-brand-olive uppercase tracking-widest text-xs font-bold">Restaurante y Cafetería</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-bold text-brand-brown mt-2 mb-4">La Comida de Siempre</h2>
+                    <p class="text-brand-brown/70">Desayunos con energía, almuerzos tradicionales y cenas ligeras. Menús adaptados a dietas suaves y sin sal bajo petición.</p>
                 </div>
 
                 <!-- Menu Items Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="menuGrid">
-                    <!-- Dynamic rendering -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="menuGrid">
+                    <!-- Item 1 -->
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border border-brand-olive/20 flex flex-col sm:flex-row gap-5 items-center">
+                        <div class="w-full sm:w-24 h-24 bg-brand-tan/20 rounded-xl flex items-center justify-center text-brand-brown text-4xl shrink-0">
+                            <i class="fa-solid fa-mug-saucer"></i>
+                        </div>
+                        <div class="flex-grow w-full">
+                            <div class="flex items-start justify-between gap-2 mb-1">
+                                <h3 class="font-serif text-xl font-bold text-brand-brown leading-snug">Desayuno "Buenos Días"</h3>
+                            </div>
+                            <p class="text-brand-brown/70 text-sm mb-2 font-medium">Café o té, zumo natural y tostada de pan de pueblo con aceite y tomate.</p>
+                            <span class="bg-brand-olive text-white text-[10px] font-bold uppercase px-2 py-1 rounded-md">08:00 - 11:30</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border border-brand-olive/20 flex flex-col sm:flex-row gap-5 items-center">
+                        <div class="w-full sm:w-24 h-24 bg-brand-tan/20 rounded-xl flex items-center justify-center text-brand-brown text-4xl shrink-0">
+                            <i class="fa-solid fa-bowl-food"></i>
+                        </div>
+                        <div class="flex-grow w-full">
+                            <div class="flex items-start justify-between gap-2 mb-1">
+                                <h3 class="font-serif text-xl font-bold text-brand-brown leading-snug">Menú del Día (Almuerzo)</h3>
+                            </div>
+                            <p class="text-brand-brown/70 text-sm mb-2 font-medium">Primer plato de cuchara, segundo de carne o pescado suave, postre y bebida.</p>
+                            <span class="bg-brand-olive text-white text-[10px] font-bold uppercase px-2 py-1 rounded-md">13:00 - 15:30</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border border-brand-olive/20 flex flex-col sm:flex-row gap-5 items-center">
+                        <div class="w-full sm:w-24 h-24 bg-brand-tan/20 rounded-xl flex items-center justify-center text-brand-brown text-4xl shrink-0">
+                            <i class="fa-solid fa-cookie-bite"></i>
+                        </div>
+                        <div class="flex-grow w-full">
+                            <div class="flex items-start justify-between gap-2 mb-1">
+                                <h3 class="font-serif text-xl font-bold text-brand-brown leading-snug">Merienda para el Bingo</h3>
+                            </div>
+                            <p class="text-brand-brown/70 text-sm mb-2 font-medium">Ideal para la tarde: café con leche o infusión acompañada de tarta casera o bizcocho.</p>
+                            <span class="bg-brand-olive text-white text-[10px] font-bold uppercase px-2 py-1 rounded-md">16:30 - 19:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="bg-white rounded-2xl p-5 shadow-sm border border-brand-olive/20 flex flex-col sm:flex-row gap-5 items-center">
+                        <div class="w-full sm:w-24 h-24 bg-brand-tan/20 rounded-xl flex items-center justify-center text-brand-brown text-4xl shrink-0">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <div class="flex-grow w-full">
+                            <div class="flex items-start justify-between gap-2 mb-1">
+                                <h3 class="font-serif text-xl font-bold text-brand-brown leading-snug">Cenas Ligeras</h3>
+                            </div>
+                            <p class="text-brand-brown/70 text-sm mb-2 font-medium">Cremas de verduras, tortillas francesas, pescados a la plancha. Todo muy suave.</p>
+                            <span class="bg-brand-olive text-white text-[10px] font-bold uppercase px-2 py-1 rounded-md">19:30 - 23:00</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Gallery Section -->
-        <section id="gallery" class="py-16 md:py-24 bg-stone-900 text-white border-t border-b border-brand-sage/50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <span class="text-brand-gold uppercase tracking-widest text-xs font-bold">Galería Nostálgica</span>
-                    <h2 class="font-serif text-3xl sm:text-5xl font-bold mt-2 mb-4">El Álbum de los Recuerdos</h2>
-                    <p class="text-stone-400 text-lg">Pasea por nuestras instalaciones llenas de detalles de la época del motor y el Rock & Roll.</p>
-                </div>
-
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="Discos de vinilo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
-                    </div>
-                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80" alt="Detalle coche clásico" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
-                    </div>
-                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" alt="Radio antigua" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
-                    </div>
-                    <div class="overflow-hidden rounded-xl h-64 group cursor-pointer border-2 border-stone-700 hover:border-brand-gold transition-colors" onclick="openLightbox('https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1200&q=80')">
-                        <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80" alt="Decoración Retro Diner" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 sepia-filter">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contacts & Reservation Section -->
-        <section id="contacts" class="py-16 md:py-24 bg-brand-beige">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    
-                    <!-- Contact Information -->
-                    <div>
-                        <span class="text-brand-terracotta uppercase tracking-widest text-xs font-bold">Ven a Visitarnos</span>
-                        <h2 class="font-serif text-3xl sm:text-5xl font-bold text-stone-900 mt-2 mb-6">Ubicación y Reservas</h2>
-                        <p class="text-stone-700 mb-8 text-lg">
-                            Estamos ubicados en pleno corazón de Las Américas. Fácil acceso, sin escalones y preparado para recibirle como se merece.
-                        </p>
-
-                        <div class="space-y-6">
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-brand-sand flex items-center justify-center text-brand-terracotta text-xl shrink-0 border border-stone-300">
-                                    <i class="fa-solid fa-location-dot"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-stone-900 text-lg">Dirección</h4>
-                                    <p class="text-stone-600">Calle La Habana 1, Las Américas<br>38650, Santa Cruz de Tenerife</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-brand-sand flex items-center justify-center text-brand-terracotta text-xl shrink-0 border border-stone-300">
-                                    <i class="fa-solid fa-phone"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-stone-900 text-lg">Teléfono de Reservas</h4>
-                                    <p class="text-stone-600">Llámenos al: +34 922 00 00 00</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-brand-sand flex items-center justify-center text-brand-terracotta text-xl shrink-0 border border-stone-300">
-                                    <i class="fa-solid fa-clock"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold text-stone-900 text-lg">Horario de Apertura</h4>
-                                    <p class="text-stone-600">Lunes a Domingo: 12:00 – 23:00</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Map Card -->
-                        <div class="mt-8 rounded-2xl overflow-hidden shadow-lg border-4 border-white">
-                            <iframe 
-                                class="w-full h-64 sepia-filter" 
-                                style="border:0;" 
-                                loading="lazy" 
-                                allowfullscreen 
-                                referrerpolicy="no-referrer-when-downgrade" 
-                                src="https://maps.google.com/maps?q=Calle%20La%20Habana%201,%20Las%20Americas,%20Tenerife&t=&z=15&ie=UTF8&iwloc=&output=embed">
-                            </iframe>
-                        </div>
+        <!-- Reservations Section -->
+        <section id="reservations" class="py-16 md:py-24 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-brand-beige p-8 sm:p-12 rounded-3xl shadow-xl border border-brand-olive/30">
+                    <div class="text-center mb-10">
+                        <i class="fa-solid fa-calendar-days text-4xl text-brand-tan mb-4"></i>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-brown mb-2">Reservas y Solicitudes</h2>
+                        <p class="text-brand-brown/70 text-base">Apúntese a nuestras actividades, excursiones o reserve mesa en nuestra cafetería.</p>
                     </div>
 
-                    <!-- Reservation Form -->
-                    <div class="bg-white p-8 sm:p-10 rounded-3xl shadow-xl border border-stone-300/80">
-                        <div class="text-center mb-6">
-                            <i class="fa-solid fa-envelope-open-text text-3xl text-brand-sage mb-3"></i>
-                            <h3 class="font-serif text-3xl font-bold text-stone-900 mb-2">Asegure su Mesa</h3>
-                            <p class="text-stone-600 text-sm">Rellene sus datos y nosotros le preparamos todo.</p>
-                        </div>
-
-                        <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-5">
+                    <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
-                                <label class="block text-xs font-bold uppercase text-stone-700 mb-1.5">Nombre Completo *</label>
-                                <input type="text" required placeholder="Ej. Antonio García" class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-brand-terracotta focus:ring-0 focus:outline-none text-sm font-medium bg-stone-50">
+                                <label class="block text-sm font-bold uppercase text-brand-brown mb-2">Nombre Completo *</label>
+                                <input type="text" required placeholder="Ej. Antonio García" class="w-full px-4 py-3.5 rounded-xl border border-brand-olive/30 focus:border-brand-olive focus:ring-1 focus:ring-brand-olive focus:outline-none text-sm font-medium bg-white">
                             </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                <div>
-                                    <label class="block text-xs font-bold uppercase text-stone-700 mb-1.5">Teléfono *</label>
-                                    <input type="tel" required placeholder="Su número de contacto" class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-brand-terracotta focus:ring-0 focus:outline-none text-sm font-medium bg-stone-50">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold uppercase text-stone-700 mb-1.5">Nº de Personas</label>
-                                    <select class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-brand-terracotta focus:ring-0 focus:outline-none text-sm font-medium bg-stone-50">
-                                        <option>2 Personas</option>
-                                        <option>3 - 4 Personas</option>
-                                        <option>5 - 8 Personas</option>
-                                        <option>Grupo / Celebración (+8)</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                                <div>
-                                    <label class="block text-xs font-bold uppercase text-stone-700 mb-1.5">Fecha *</label>
-                                    <input type="date" required class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-brand-terracotta focus:ring-0 focus:outline-none text-sm font-medium bg-stone-50">
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-bold uppercase text-stone-700 mb-1.5">Hora *</label>
-                                    <input type="time" required class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-brand-terracotta focus:ring-0 focus:outline-none text-sm font-medium bg-stone-50">
-                                </div>
-                            </div>
-
                             <div>
-                                <label class="block text-xs font-bold uppercase text-stone-700 mb-1.5">Necesidades Especiales / Preferencia</label>
-                                <select class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-brand-terracotta focus:ring-0 focus:outline-none text-sm font-medium bg-stone-50">
-                                    <option>Sillón de máximo confort (Interior)</option>
-                                    <option>Mesa en la Terraza (Abbey Road)</option>
-                                    <option>Fácil acceso (Silla de ruedas)</option>
-                                    <option>Reservado para celebración</option>
+                                <label class="block text-sm font-bold uppercase text-brand-brown mb-2">Teléfono *</label>
+                                <input type="tel" required placeholder="Su número de contacto" class="w-full px-4 py-3.5 rounded-xl border border-brand-olive/30 focus:border-brand-olive focus:ring-1 focus:ring-brand-olive focus:outline-none text-sm font-medium bg-white">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold uppercase text-brand-brown mb-2">¿Qué desea reservar? *</label>
+                            <select required class="w-full px-4 py-3.5 rounded-xl border border-brand-olive/30 focus:border-brand-olive focus:ring-1 focus:ring-brand-olive focus:outline-none text-sm font-medium bg-white text-brand-brown">
+                                <option value="" disabled selected>Seleccione una opción...</option>
+                                <option>Asistencia a Clase de Yoga</option>
+                                <option>Reservar asiento para el Bingo</option>
+                                <option>Información / Apuntarme a próxima excursión</option>
+                                <option>Reservar mesa para Almorzar / Cenar</option>
+                                <option>Información general sobre el centro</option>
+                            </select>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold uppercase text-brand-brown mb-2">Fecha deseada</label>
+                                <input type="date" class="w-full px-4 py-3.5 rounded-xl border border-brand-olive/30 focus:border-brand-olive focus:ring-1 focus:ring-brand-olive focus:outline-none text-sm font-medium bg-white">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold uppercase text-brand-brown mb-2">Nº de Personas</label>
+                                <select class="w-full px-4 py-3.5 rounded-xl border border-brand-olive/30 focus:border-brand-olive focus:ring-1 focus:ring-brand-olive focus:outline-none text-sm font-medium bg-white">
+                                    <option>1 Persona</option>
+                                    <option>2 Personas</option>
+                                    <option>3 - 4 Personas</option>
+                                    <option>Grupo grande</option>
                                 </select>
                             </div>
+                        </div>
 
-                            <button type="submit" class="w-full py-4 bg-brand-sage hover:bg-brand-dark text-white font-bold rounded-xl shadow-md transition-all duration-300 mt-4 text-lg">
-                                Confirmar mi Reserva
-                            </button>
-                        </form>
-                    </div>
+                        <div>
+                            <label class="block text-sm font-bold uppercase text-brand-brown mb-2">Comentarios Adicionales</label>
+                            <textarea rows="3" placeholder="Indíquenos si necesita acceso en silla de ruedas, dieta especial, etc." class="w-full px-4 py-3.5 rounded-xl border border-brand-olive/30 focus:border-brand-olive focus:ring-1 focus:ring-brand-olive focus:outline-none text-sm font-medium bg-white"></textarea>
+                        </div>
 
+                        <button type="submit" class="w-full py-4 bg-brand-olive hover:bg-brand-lightOlive text-white font-bold rounded-xl shadow-md transition-all duration-300 mt-2 text-lg">
+                            Enviar Solicitud
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -514,230 +404,42 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-stone-950 text-stone-400 py-12 border-t-8 border-brand-sage">
+    <footer class="bg-brand-brown text-brand-beige py-12 border-t-8 border-brand-olive">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-4">
-                <img src="logo.png" alt="La Casa De Todos Logo" class="w-16 h-16 object-contain rounded-full border-2 border-brand-gold bg-white">
+                <div class="w-16 h-16 bg-brand-beige rounded-full flex items-center justify-center p-2 border-2 border-brand-tan">
+                    <img src="logo.png" alt="Logo" class="w-full h-full object-contain" onerror="this.style.display='none'">
+                    <!-- Icon fallback if logo doesn't load -->
+                    <i class="fa-solid fa-house text-brand-brown text-2xl" onerror="this.style.display='block'"></i>
+                </div>
                 <div class="flex flex-col">
-                    <span class="font-serif text-xl font-bold text-white tracking-wide">La Casa De Todos</span>
-                    <span class="text-xs text-stone-500 mt-1">Calle La Habana 1, Las Américas, Tenerife[cite: 1]</span>
+                    <span class="font-serif text-2xl font-bold text-brand-beige tracking-wide">La Casa de Todos</span>
+                    <span class="text-xs text-brand-tan font-bold mt-1 uppercase tracking-widest">Compañía • Comida • Bienestar</span>
+                    <span class="text-xs text-brand-beige/60 mt-1">Calle La Habana 1, Las Américas, Tenerife</span>
                 </div>
             </div>
             
-            <p class="text-xs text-stone-500 font-medium">© 2026 La Casa De Todos SL. El lugar de nuestra época.</p>
+            <div class="text-center md:text-right">
+                <p class="text-sm text-brand-beige/80 font-bold mb-2">Horario: Lunes a Domingo, 08:00 a 23:00</p>
+                <p class="text-xs text-brand-beige/50 font-medium">© 2026 La Casa de Todos SL.</p>
+            </div>
             
-            <div class="flex items-center space-x-3 text-stone-400">
-                <span class="text-sm font-bold mr-2">Síguenos:</span>
-                <a href="https://instagram.com/lacasadetodossl" target="_blank" class="w-10 h-10 rounded-full bg-stone-900 flex items-center justify-center hover:bg-brand-terracotta hover:text-white transition-all text-xl border border-stone-800">
+            <div class="flex items-center space-x-3 text-brand-beige">
+                <a href="https://instagram.com/lacasadetodossl" target="_blank" class="w-10 h-10 rounded-full bg-brand-olive flex items-center justify-center hover:bg-brand-tan hover:text-brand-brown transition-all text-xl border border-brand-olive">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
             </div>
         </div>
     </footer>
 
-    <!-- Service Details Modal -->
-    <div id="serviceModal" class="fixed inset-0 bg-stone-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-brand-beige rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl animate-fade-in relative border border-stone-300">
-            <button onclick="closeModal('serviceModal')" class="absolute top-4 right-4 bg-white/80 hover:bg-white w-10 h-10 rounded-full flex items-center justify-center text-stone-800 transition-colors z-10 shadow">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-            <div id="serviceModalContent" class="p-6 sm:p-8">
-                <!-- Dynamically populated -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Image Lightbox Modal -->
-    <div id="lightboxModal" class="fixed inset-0 bg-stone-950/95 z-50 hidden flex items-center justify-center p-4" onclick="closeModal('lightboxModal')">
-        <button class="absolute top-6 right-6 text-white hover:text-brand-terracotta text-4xl transition-colors">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <img id="lightboxImage" src="" alt="Imagen ampliada" class="max-w-full max-h-[90vh] rounded-xl shadow-2xl object-contain border-4 border-white sepia-filter">
-    </div>
-
     <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-6 right-6 bg-stone-900 text-white px-6 py-4 rounded-2xl shadow-2xl hidden z-50 flex items-center gap-3 border-l-4 border-brand-sage">
-        <i class="fa-solid fa-bell-concierge text-brand-gold text-2xl"></i>
+    <div id="toast" class="fixed bottom-6 right-6 bg-brand-olive text-white px-6 py-4 rounded-2xl shadow-2xl hidden z-50 flex items-center gap-3 border-2 border-brand-tan">
+        <i class="fa-solid fa-circle-check text-brand-beige text-2xl"></i>
         <span id="toastMessage" class="text-sm font-bold tracking-wide">¡Solicitud recibida! Le llamaremos enseguida.</span>
     </div>
 
     <!-- JavaScript Logic -->
     <script>
-        // Data for Restaurant Menu - 60s Theme & Classics
-        const menuItems = [
-            {
-                id: 1,
-                title: "Croquetas Caseras de la Abuela",
-                category: "tapas",
-                price: "8.50 €",
-                desc: "Como se hacían antes: bechamel muy cremosa trabajada a mano con jamón ibérico y un rebozado crujiente. Ideales para compartir.",
-                badge: "Tradición",
-                image: "https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=500&q=80"
-            },
-            {
-                id: 2,
-                title: "Tabla de Quesos Curados con Membrillo",
-                category: "tapas",
-                price: "12.00 €",
-                desc: "Selección de quesos curados de las islas, acompañados del clásico dulce de membrillo y nueces peladas.",
-                badge: "Clásico",
-                image: "https://images.unsplash.com/photo-1572656631137-7935297eff55?auto=format&fit=crop&w=500&q=80"
-            },
-            {
-                id: 3,
-                title: "Consomé Tradicional al Jerez",
-                category: "starters",
-                price: "7.50 €",
-                desc: "Un caldito reconfortante hecho a fuego lento durante horas, servido calentito con su toque de Jerez y picatostes.",
-                badge: "Muy Suave",
-                image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80"
-            },
-            {
-                id: 4,
-                title: "Solomillo 'Tributo a los 60'",
-                category: "mains",
-                price: "21.00 €",
-                desc: "Pieza tierna de carne que se deshace en la boca, bañada en una salsa de vino tinto muy suave y acompañada de patatitas al horno.",
-                badge: "Fácil masticación",
-                image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=80"
-            },
-            {
-                id: 5,
-                title: "Pescado del Día al Horno con Verduras",
-                category: "mains",
-                price: "18.50 €",
-                desc: "Lomo de pescado blanco, limpio de espinas, asado suavemente con verduras de temporada y un hilo de aceite de oliva.",
-                badge: "Saludable",
-                image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=500&q=80"
-            },
-            {
-                id: 6,
-                title: "Arroz Caldoso del Señorito",
-                category: "mains",
-                price: "19.00 €",
-                desc: "Todo peladito y listo para disfrutar con cuchara. Arroz marinero con un sabor intenso y textura perfecta.",
-                badge: "El Favorito",
-                image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=500&q=80"
-            },
-            {
-                id: 7,
-                title: "Flan de Huevo Casero al Caramelo",
-                category: "desserts",
-                price: "5.50 €",
-                desc: "La receta de 1965. Huevos, leche, azúcar y mucho amor. Textura sedosa que gusta a todo el mundo.",
-                badge: "Postre Estrella",
-                image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=500&q=80"
-            },
-            {
-                id: 8,
-                title: "Leche Frita con Canela",
-                category: "desserts",
-                price: "6.00 €",
-                desc: "Dulce de toda la vida, suave y cremoso por dentro, espolvoreado con azúcar y canela.",
-                badge: "Recuerdos",
-                image: "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=500&q=80"
-            }
-        ];
-
-        // Services Data in Spanish with 60s Theme
-        const servicesData = {
-            events: {
-                title: "Guateques y Celebraciones",
-                image: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1000&q=80",
-                price: "A tu medida",
-                desc: "Reúne a la familia, viejos amigos o compañeros para una celebración inolvidable. Ponemos la música de tu juventud, el menú a vuestro gusto y todo el cariño para que sea una tarde perfecta.",
-                features: ["Acceso cómodo y fácil sin barreras", "Menús tradicionales adaptables (bajos en sal, sin azúcar, etc.)", "Música de los años 50, 60 y 70", "Trato cercano y sin prisas"]
-            },
-            terrace: {
-                title: "Terraza 'Abbey Road'",
-                image: "https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1000&q=80",
-                price: "Clima inmejorable",
-                desc: "Un rincón exterior decorado con toques del motor clásico europeo. Ideal para respirar la brisa de Las Américas desde unos sillones verdaderamente confortables.",
-                features: ["Sillones ergonómicos y cálidos", "Servicio en mesa atento", "Vistas tranquilas, lejos del bullicio", "Zona de sombra y temperatura ideal"]
-            },
-            vip: {
-                title: "Salón de los Clásicos",
-                image: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80",
-                price: "Reservado Exclusivo",
-                desc: "Para los que buscan la máxima tranquilidad. Un salón apartado con acústica cuidada para que puedas charlar horas y horas sin forzar la voz, rodeado de recuerdos de época.",
-                features: ["Música de fondo a volumen bajo", "Sofás y butacas clásicas", "Luz cálida y acogedora", "Atención prioritaria del equipo"]
-            },
-            catering: {
-                title: "Tardes de Té y Recuerdos",
-                image: "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=1000&q=80",
-                price: "Meriendas de Antaño",
-                desc: "¿Hace cuánto que no disfrutas de una buena merienda? Volvemos a la tradición de la tarde: tés, cafés servidos en buena loza y repostería casera hecha cada mañana.",
-                features: ["Variedad de infusiones digestivas", "Tartas y bizcochos muy tiernos", "Ambiente relajado de tarde", "El mejor café de Las Américas"]
-            },
-            tastings: {
-                title: "Música en Vivo: Tributos a los 60",
-                image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1000&q=80",
-                price: "Fines de Semana",
-                desc: "Revive la época dorada con grupos en directo que rinden homenaje a The Beatles, Elvis, Frank Sinatra y los grandes del pop español de los 60. Siempre a un volumen respetuoso.",
-                features: ["Música en formato acústico suave", "Los clásicos que te hacen sonreír", "Ambiente seguro y festivo", "Terminamos temprano para descansar bien"]
-            }
-        };
-
-        let activeCategory = 'all';
-
-        // Render Menu
-        function renderMenu(items) {
-            const grid = document.getElementById('menuGrid');
-            grid.innerHTML = '';
-
-            if (items.length === 0) {
-                grid.innerHTML = `<div class="col-span-full text-center py-12 text-stone-500 font-medium">No hemos encontrado esa receta. ¡Prueba buscando otra!</div>`;
-                return;
-            }
-
-            items.forEach(item => {
-                const badgeHTML = item.badge ? `<span class="bg-brand-sage text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-md shadow-sm">${item.badge}</span>` : '';
-                grid.innerHTML += `
-                    <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-stone-200 flex flex-col sm:flex-row gap-5 items-center hover:border-brand-terracotta transition-colors group">
-                        <img src="${item.image}" alt="${item.title}" class="w-full sm:w-32 h-32 object-cover rounded-xl shrink-0 sepia-filter group-hover:filter-none transition-all duration-700">
-                        <div class="flex-grow w-full">
-                            <div class="flex items-start justify-between gap-2 mb-1">
-                                <h3 class="font-serif text-xl font-bold text-stone-900 leading-snug group-hover:text-brand-terracotta transition-colors">${item.title}</h3>
-                                <span class="font-bold text-stone-800 font-serif text-lg whitespace-nowrap bg-stone-100 px-2 py-1 rounded">${item.price}</span>
-                            </div>
-                            <p class="text-stone-600 text-sm mb-4 leading-relaxed font-medium">${item.desc}</p>
-                            <div>${badgeHTML}</div>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        // Filter Menu by Category
-        function filterMenu(category) {
-            activeCategory = category;
-            
-            document.querySelectorAll('.menu-tab-btn').forEach(btn => {
-                if (btn.dataset.category === category) {
-                    btn.className = "menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-brand-terracotta text-white shadow-sm transition-all border border-brand-terracotta";
-                } else {
-                    btn.className = "menu-tab-btn px-5 py-2.5 rounded-full text-sm font-bold bg-white text-stone-700 hover:bg-brand-sand transition-all border border-stone-300";
-                }
-            });
-
-            applyMenuFilters();
-        }
-
-        // Search Menu
-        function searchMenu() {
-            applyMenuFilters();
-        }
-
-        function applyMenuFilters() {
-            const query = document.getElementById('menuSearch').value.toLowerCase();
-            const filtered = menuItems.filter(item => {
-                const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
-                const matchesSearch = item.title.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query);
-                return matchesCategory && matchesSearch;
-            });
-            renderMenu(filtered);
-        }
-
         // Mobile Menu Toggle
         function toggleMobileMenu() {
             const menu = document.getElementById('mobileMenu');
@@ -748,48 +450,6 @@
             } else {
                 icon.className = 'fa-solid fa-xmark text-2xl';
             }
-        }
-
-        // Service Details Modal
-        function openServiceDetail(serviceKey) {
-            const data = servicesData[serviceKey];
-            if (!data) return;
-
-            const modalContent = document.getElementById('serviceModalContent');
-            modalContent.innerHTML = `
-                <img src="${data.image}" alt="${data.title}" class="w-full h-64 object-cover rounded-2xl mb-6 sepia-filter shadow-md border-4 border-white">
-                <span class="bg-brand-sage text-white px-3 py-1 rounded font-bold text-xs uppercase tracking-wider shadow-sm">${data.price}</span>
-                <h3 class="font-serif text-3xl font-bold text-stone-900 mt-4 mb-4">${data.title}</h3>
-                <p class="text-stone-700 text-base leading-relaxed mb-6 font-medium">${data.desc}</p>
-                
-                <div class="bg-white p-5 rounded-xl border border-stone-200 mb-8">
-                    <h4 class="font-bold text-brand-terracotta mb-4 text-sm uppercase tracking-wide">Por qué te encantará:</h4>
-                    <ul class="space-y-3">
-                        ${data.features.map(f => `<li class="flex items-center text-sm font-bold text-stone-700"><i class="fa-solid fa-check text-brand-sage mr-3 text-lg"></i> ${f}</li>`).join('')}
-                    </ul>
-                </div>
-
-                <a href="#contacts" onclick="closeModal('serviceModal')" class="block text-center w-full py-4 bg-brand-terracotta hover:bg-brand-terracottaDark text-white font-bold rounded-xl shadow-lg transition-all text-lg">
-                    Quiero Reservar esta Experiencia
-                </a>
-            `;
-
-            openModal('serviceModal');
-        }
-
-        // Modal Helpers
-        function openModal(id) {
-            document.getElementById(id).classList.remove('hidden');
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.add('hidden');
-        }
-
-        // Lightbox
-        function openLightbox(src) {
-            document.getElementById('lightboxImage').src = src;
-            openModal('lightboxModal');
         }
 
         // Booking Form Handling
@@ -808,11 +468,6 @@
                 toast.classList.add('hidden');
             }, 5000);
         }
-
-        // Initial Load
-        window.onload = function() {
-            renderMenu(menuItems);
-        };
     </script>
 </body>
 </html>
